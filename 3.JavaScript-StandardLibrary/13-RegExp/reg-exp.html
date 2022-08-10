@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RegExp</title>
+  </head>
+  <body>
+    <script>
+      /*
+        RegExp
+
+            ● RegExp merupakan implementasi dari regular expression di JavaScript
+            ● Regular expression merupakan fitur untuk mencari text dengan pola
+            ● Membuat regular expression di JavaScript bisa dilakukan dengan dua cara, yaitu menggunakan
+            literal notation atau membuat object RegExp
+            ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+        */
+
+      {
+        //membuat RegEXp
+        const regex1 = /kevin/; //akan string mencari dgn pola kevin
+        const regex2 = new RegExp("kevin");
+        const regex3 = new RegExp(/kevin/);
+      }
+
+      {
+        //RegExp Instance Method
+        const name = "otniel kevin abiel";
+        const regex = /abiel/; //regex (case sensitive, harus identik stringnya jk berbeda akan null)
+
+        let result = regex.exec(name);
+        //balikannya dlm bentuk array
+        console.info(result); // ['abiel', index: 13, input: 'otniel kevin abiel', groups: undefined]
+
+        //mencari abiel di string tidak ada
+        console.info(regex.exec("tidak ada")); //null
+
+        let test = regex.test(name);
+        // (mencari apakah pola abiel ada di dlm string)
+        console.info(test); //true
+        console.info(regex.test("tidak ada")); //false
+      }
+
+      {
+        //RegExp Modifier
+        console.info("RegExp Modifier");
+        const name = "otniel kevin\noTniel abiel\nTohru Kobayashi";
+        const regex1 = /otniel/g; //mencari data scr global dan akan berhenti apabila data ketemu
+        const regex2 = /otniel/gi; //mencari data scr global dgn incase sensitive (tdk peduli besar kecil huruf). akan berhenti apabila data ketemu
+        const regex3 = /KoBaYashi/gim;
+        //jika hanya mengetikkan modifier i akan looping terus-menerus tanpa henti, harus ditambahkan g (global)
+
+        let result;
+
+        while ((result = regex1.exec(name)) !== null) {
+          console.info(result);
+        }
+
+        //mengambil semua data otniel (incase sensitive)
+        while ((result = regex2.exec(name)) !== null) {
+          console.info(result);
+        }
+
+        while ((result = regex3.exec(name)) !== null) {
+          console.info(result);
+        }
+      }
+
+      {
+        /*
+        Fitur RegExp Lainnya
+            ● Assersions : indikasi awal dan akhir teks 
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Assertions
+            ● Character Classes : membedakan antara huruf dan angka 
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Character
+            _Classes
+            ● Group dan Range : melakukan grouping atau range huruf atau angka 
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_a
+            nd_Ranges
+            ● Quantifiers : menentukan jumlah huruf atau angka 
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Quantifie
+            rs
+        */
+        console.info("RegExp Fitur");
+        const name = "otniel kevin\noTniel abiel\nTohru Kobayashi";
+
+        const regex2 = /^otniel/gi; //mencari data scr global dgn incase sensitive (tdk peduli besar kecil huruf). akan berhenti apabila data ketemu
+        const regex3 = /^otniel/gim; //begitu enter berarti dia memulai dari baris baru
+        let result;
+        while ((result = regex2.exec(name)) !== null) {
+          console.info(result); //hanya mengambil string otniel yang ada diawal, sebelumnya ada 2 otniel, dengan tanda ^ hanya 1 yang diambil
+          //output
+          // ['otniel', index: 0, input: 'otniel kevin\noTniel abiel\nTohru Kobayashi', groups: undefined]
+        }
+        while ((result = regex3.exec(name)) !== null) {
+          console.info(result); //mengambil otniel pada baris pertama dan otniel pada baris kedua (awal string)
+          //output
+          // ['otniel', index: 0, input: 'otniel kevin\noTniel abiel\nTohru Kobayashi', groups: undefined]
+          // ['oTniel', index: 13, input: 'otniel kevin\noTniel abiel\nTohru Kobayashi', groups: undefined]
+        }
+
+        //contoh2
+        //grouping
+        console.info("Grouping :");
+        const regex = /ek[aiueo]/gi; //mencari dan mengambil semua string dengan awalan ek...aiuieo dan akhiran [a, i, u, e, o]
+        const text = "eko eki eka eku eke edo eko eki";
+
+        while ((result = regex.exec(text)) !== null) {
+          console.info(result);
+          //output
+          // ['eko', index: 0, input: 'eko ado eki eka ejo emi elo eke', groups: undefined]
+          // ['eki', index: 8, input: 'eko ado eki eka ejo emi elo eke', groups: undefined]
+          // ['eka', index: 12, input: 'eko ado eki eka ejo emi elo eke', groups: undefined]
+          // ['eku', index: 12, input: 'eko eki eka eku eke edo eko eki', groups: undefined]
+          // ['eke', index: 28, input: 'eko ado eki eka ejo emi elo eke', groups: undefined]
+          // ['eko', index: 24, input: 'eko eki eka eku eke edo eko eki', groups: undefined]
+          // ['eki', index: 28, input: 'eko eki eka eku eke edo eko eki', groups: undefined]
+        }
+      }
+
+      {
+        //Regular Expression di String
+        console.info("Regular Expression String:");
+        const string = "eko ado eki eka ajo emi elo eke";
+
+        console.info(string.match(/ek[aiueo]/gi)); // ["eko", "eki", "eka", "eke"] menampungnya dalam array
+        console.info(string.search(/ek[aiueo]/gi)); // 0 krn sudah dapat dari index ke 0
+        // di replace semua karena regex
+        console.info(string.replace(/ek[aiueo]/i, "keren")); // keren ado eki eka ajo emi elo eke (jika pake g(global) maka akan tereplace semua)
+        console.info(string.replaceAll(/ek[aiueo]/gi, "keren")); // keren ado keren keren ajo emi elo keren (harus pake g(global) agar tidak error, krn bermaklsud mereplace semua data)
+        console.info(string.split(/e/gi)); // ['', 'ko ado ', 'ki ', 'ka ajo ', 'mi ', 'lo ', 'k', '']
+      }
+    </script>
+  </body>
+</html>

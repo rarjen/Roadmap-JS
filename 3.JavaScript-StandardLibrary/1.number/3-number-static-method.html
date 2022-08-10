@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Static Method</title>
+  </head>
+  <body>
+    <script>
+      /*
+      Number Static Method
+        - number memiliki banyak static method, seperti :
+        - Number.isNaN(value) utk mengecek apakah value NaN atau bukan
+        - Number.isInteger(value) utk mengecek apakah value berupa integer atau bukan
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#static_methods
+        */
+
+      const data = Number("12345");
+      console.info(Number.isInteger(data)); //true
+      console.info(Number.isNaN(data)); //false, krn data bukan berupa NaN bisa di konversi
+    </script>
+  </body>
+</html>

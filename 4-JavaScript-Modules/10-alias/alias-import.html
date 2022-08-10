@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alias import</title>
+  <body>
+    <script type="module">
+      /*
+        Alias di Import
+            ● Atau rekomendasinya sebenarnya melakukan alias ketika melakukan import
+            ● Sehingga ketika export, nama tidak perlu berubah
+            ● Untuk melakukan alias ketika import, kita bisa gunakan kata kunci as, diikuti dengan nama alias :
+            import { function as functionLain } from “./module.js”
+        */
+
+        import {
+        company,
+        sum,
+        Company,
+      } from "./scripts/multiple-export.js";
+      import {
+        company as perusahaan,
+        sum as total,
+        Company as Perusahaan,
+      } from "./scripts/alias-import.js";
+
+
+      console.info(perusahaan); // Otniel Corp
+
+      let hasil = total(12, 12);
+      console.info(hasil); // 24
+
+      const a = new Perusahaan("leinto"); // Company Name : leinto
+
+      let hasi2 = sum(2, 3);
+      console.info(hasi2); // 5
+    </script>
+  </body>
+</html>

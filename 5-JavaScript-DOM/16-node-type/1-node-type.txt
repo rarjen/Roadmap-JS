@@ -1,0 +1,7 @@
+Node Type (2)
+● Saat kita menyeleksi Node menjadi NodeList, kadang kita ingin tahu tipe Node tersebut
+● Apakah Element, TextElement atau yang lainnya
+● Node sendiri memiliki property bernama nodeType, dimana kita bisa melihat tipe dari node 
+tersebut
+● https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
+

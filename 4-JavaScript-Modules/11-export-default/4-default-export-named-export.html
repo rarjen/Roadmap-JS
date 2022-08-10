@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>default export named export</title>
+  </head>
+  <body>
+    <script type="module">
+      /*
+      Default dan Named Export
+        ● Dalam satu module, kita bisa menggabungkan export default dan export named
+        ● Yang tidak boleh adalah, dalam satu module, membuat lebih dari satu default
+        ● Cara import default dan named secara bersamaan bisa menggunakan perintah :
+        import defaultAlias, {named1, named2} from “./module.js”;
+        import {default as defaultAlias, named1, named2} from “./module.js”;
+      */
+
+      // export defult dapat dari luar kurung kurawal
+      import /*default*/ authorName, {
+        title,
+        content,
+      } from "./scripts/default-export-named-export.js";
+
+      // sama seperti dibawah
+      // import {
+      //   default as authorName,
+      //   title,
+      //   content,
+      // } from "./scripts/default-export-named-export.js";
+
+      console.info(authorName); // otniel kevin abiel
+      console.info(title); // Balajar JS Module itu asik
+      console.info(content); // Content bljr JS Module
+
+      /*
+      Rekomendasi
+      
+        ● Bedakan antara default dan named, karena jika digabungkan kadang akan membingungkan ketika 
+        melakukan import
+        ● Sebisa mungkin selalu gunakan export named dibandingkan export default
+      */
+    </script>
+  </body>
+</html>

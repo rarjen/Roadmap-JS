@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date getter - setter</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Date Getter dan Setter
+
+            ● Date juga memiliki banyak sekali method untuk mendapatkan informasi date dan juga mengubah 
+            informasi date, atau istilahnya adalah getter dan setter
+            ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#insta
+            nce_methods
+
+            - ini merupakan instance method pada tipe data date
+        */
+
+      //getter dan setter
+      const date = new Date();
+
+      date.setFullYear(2020); //melakukan set tahun
+      date.setMonth(11); //melakukan set bulan
+
+      console.info(date.getFullYear()); //2020
+      console.info(date.getMonth()); //11
+      console.info(date.getDate()); //22
+      console.info(date.getHours()); //22 : jam 10 mlm
+      console.info(date.getMinutes()); // 24 : menit 24
+      console.info(date.getSeconds()); // 43
+      console.info(date.getMilliseconds()); //869
+      console.info(date.getTimezoneOffset()); //-420 (selisih local time ke UTC, -420 menit(7jam))
+    </script>
+  </body>
+</html>

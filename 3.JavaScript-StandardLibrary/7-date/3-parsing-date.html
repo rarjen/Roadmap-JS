@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>parsing-date</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Parsing Date
+        
+        ● Kita juga bisa melakukan parsing membuat date dari string menggunakan method 
+        Date.parse(value)
+        ● Format string harus YYYY-MM-DDTHH:mm:ss.sssZ (T pemisah antara date dan waktu, Z adl timezone)
+        ● Dimana jika kita hanya membuat date berisi tanggal saja, kita cukup gunakan YYYY-MM-DD
+        ● Jika date dengan tanggal dan waktu, gunakan YYYY-MM-DDTHH:mm:ss.sss
+        ● Jika date dengan tanggal, waktu dan timezone, gunakan YYYY-MM-DDTHH:mm:ss.sssZ
+        ● Hasil parsing adalah unix timestamp, bukan object date
+        */
+
+      //Date Parsing
+      const time = Date.parse("2001-01-12T08:45:45.123+07:00"); //hasil adl epoch milis, timezone wib +07:00
+      console.info(time);
+
+      const date = new Date(time);
+      console.info(date); //Fri Jan 12 2001 08:45:45 GMT+0700 (Western Indonesia Time)
+    </script>
+  </body>
+</html>

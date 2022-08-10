@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Symbol</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Symbol
+            ● Symbol merupakan tipe data yang digaransi akan selalu unique setiap kali kita membuat data
+            symbol
+            ● Symbol kadang banyak digunakan untuk membuat key pada object
+            ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+
+            - symbol biasanya digunakan utk membuat key di dlm object agar unik
+            - beda dgn string, string apabila dri 2 object yg berbeda, dan dimasukkan sbg key dlm sebua object,
+            jika value string nya sama, maka dianggap key nya sama. tapi kalo symbol bisa berbeda
+        */
+
+      //Symbol
+      //variable menampung symbol
+      const firstName = Symbol("firstName"); //deskripsinya itu optional, yg ada di dlm ()
+      const lastName = Symbol("firstName");
+
+      //walaupun deskripsinya sama namun antara firstName dan lastName tidaklah sama
+      //mengembalikan value yang berbeda
+      console.info(firstName === lastName); //false
+
+      const person = {};
+      //menggunakan symbol (key bukanlah string lagi)
+      person[firstName] = "otniel";
+      person[lastName] = "kevin";
+
+      console.info(person); // {Symbol(firstName): 'otniel', Symbol(firstName): 'kevin'}
+      console.info(person[firstName]); //mengakses property object symbol firstName : otniel
+      console.info(person[lastName]); //mengakses property object symbol lastName : kevin
+
+      {
+        /*
+      Symbol For
+        ● Kadang agak sulit membuat symbol harus selalu menggunakan variable
+        ● Pembuatan symbol juga bisa menggunakan static method Symbol.for(key)
+        ● Jika kita menggunakan key yang sama, Symbol yang sama akan sekalu dikembalikan
+      */
+        //SYMBOL FOR
+
+        //jika kita tidak ingin membuat variable untuk menampung symbol bisa gunakan ini
+
+        //sama seperti map, bila ada symbol yang sama akan mengembalikan value symbol yang sama
+        //kebalikan dari new Symbol yang akan mengembalikan symbol yg berbeda
+        const f1Driver = {};
+        f1Driver[Symbol.for("firstName")] = "Maxs"; //symbol terduplikat
+        f1Driver[Symbol.for("firstName")] = "Max"; //ini yang akan diambil
+        f1Driver[Symbol.for("lastName")] = "Verstappen";
+
+        console.info(f1Driver); // {Symbol(firstName): 'Max', Symbol(lastName): 'Verstappen'}
+        console.info(f1Driver[Symbol.for("firstName")]); //max
+        console.info(f1Driver[Symbol.for("lastName")]); //verstappen
+
+        //mengecek apakah mengembalikan symbol yg sama
+        console.info(Symbol.for("f1Teams") === Symbol.for("f1Teams")); //true
+      }
+    </script>
+  </body>
+</html>

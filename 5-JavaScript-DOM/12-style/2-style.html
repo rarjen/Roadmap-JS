@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style</title>
+  </head>
+  <body>
+    <input id="button" type="button" value="blue" />
+    <input type="button" value="red" />
+    <input type="button" value="yellow" />
+    <input type="button" value="green" />
+
+    <div
+      id="canvas"
+      style="width: 500px; height: 500px; background-color: black"
+    ></div>
+    <script>
+      const colors = ["red", "blue", "yellow", "green"];
+      const canvas = document.getElementById("canvas"); // mengambil element canvas (div)
+      const buttons = document.querySelectorAll("input"); // mengambil semua element input
+      //   const button = document.getElementById("button");
+
+      // melakukan iterasi, mengambil semua elemen input
+      for (const button of buttons) {
+        // dari tiap button kita tambahkan onclick
+        button.onclick = function () {
+          canvas.style.backgroundColor = button.getAttribute("value"); // mengambil value tiap" button untuk mengubah warna pada canvas
+        };
+      }
+
+      //   for (const color of colors) {
+      //     button.onclick = function () {
+      //       canvas.style.backgroundColor = color;
+      //     };
+      //   }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="content">
+      <h1>Text Content</h1>
+      <p>Ini adalah text content</p>
+    </div>
+
+    <script>
+      // textContent akan mengambil semua text di dlm elemen div content (termasuk spasi)
+      const content = document.getElementById("content");
+      console.info(content.textContent);
+      console.info(content.innerText); // hanya mengambil text yang di rander pada halaman web
+    </script>
+  </body>
+</html>

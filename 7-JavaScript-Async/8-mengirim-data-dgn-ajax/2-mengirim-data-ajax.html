@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mengrim data dgn AJAX (JSON)</title>
+  </head>
+  <form>
+    <label for="username">
+      Username :
+      <input type="text" id="username" name="username" />
+    </label>
+    <br />
+    <label for="password">
+      Password :
+      <input type="password" id="password" name="password" />
+    </label>
+    <br />
+    <input type="button" id="login" value="Login" />
+  </form>
+  <h1 id="response"></h1>
+  <body>
+    <script>
+      function doLogin() {
+        const ajax = new XMLHttpRequest(); // inisilaisasi ajax request
+
+        // kita melakukan open ajax
+        ajax.open("POST", "https://hookb.in/eKmrQQxk7gclaRPldEel"); // method POST : mengirim data ke server
+
+        // Event onload adalah event ketika suatu objek selesai dimuat (di-load) dan menampilkan seluruh eelemen HTML pada browser.
+        ajax.onload = function () {
+          // jika sudah selesai mengirim data maka ingin ditampilkan ajax response nya
+          //   console.info(ajax.responseText);
+          const response = document.getElementById("response");
+          response.innerText = ajax.response;
+        };
+
+        // memberitahu kepada server bahwa data yg akan dikirim berupa json
+        ajax.setRequestHeader("Content-type", "application/json"); // deklrasi tipe data yg akan dikirm ke
+
+        // method mengirim data ke server dengan sblmnya di konversi ke dlm string
+        ajax.send(
+          JSON.stringify({
+            username: document.getElementById("username").value, // mengambil value username
+            password: document.getElementById("password").value, // mengambil value password
+          })
+        );
+      }
+
+      document.getElementById("login").onclick = doLogin;
+    </script>
+  </body>
+</html>

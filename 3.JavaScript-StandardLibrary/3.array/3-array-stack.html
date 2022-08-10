@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array-stack</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Array Stack
+
+        ● Struktur data Stack (Tumpukan) kebalikan dari Queue, dimana aturannya mirip dengan tumpukan
+        kartu
+        ● Saat kita memasukkan data, kita akan memasukkan di urutan paling belakang (atau atas)
+        ● Sedangkan saat kita mengambil data, kita akan mengambil data dari paling belakang (atau atas)
+        terlebih dahulu
+        ● Stack ini sifatnya LIFO (last in first out)
+        ● Untuk menambah diurutan belakang, kita bisa menggunakan function push()
+        ● Dan untuk mengambil dan menghapus paling belakang, kita bisa menggunakan function pop()
+        */
+
+      const stack = [];
+
+      //arrow function (print stack)
+      const showStack = () => {
+        stack.forEach((element) => {
+          console.info(element);
+        });
+      };
+
+      stack.push(1); //menambah tail (1)
+      stack.push(2); //menambah tail (2)
+      stack.push(3); //menambah tail (3)
+      stack.push(4); //menambah tail (4)
+      stack.push(5); //menambah tail (5)
+      showStack();
+
+      //   console.info(stack.pop()); utk output data tail yg dihapus (5)
+      stack.pop(); //menghapus tail (5)
+      showStack();
+
+      //jika stack telah kosong dan melakukan pop balikannya adl undefined
+    </script>
+  </body>
+</html>

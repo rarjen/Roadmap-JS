@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kata-kunci-this</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - kata kunci this adl referensi ke object milik siapa
+        - tiap lokasi kata kunci this, bisa berbeda-beda referensi pemiliknya
+        - dalam Object Method, this merupakan referensi ke object pemilik functionnya
+        - di global scope, this merupakan referensi ke global object (di browser biasanya window)
+        - dlm function, this merupakan referensi ke global object (di browser biasanya window)
+        - di function dgn struct mode, this adl undefined
+        - dlm event, this merupakan referensi ke element yg menerima event (dibahas di materi
+        Document Object Model)
+
+        - jrg digunakn di global scope atau di function, kebanyakan diakses di object method
+        */
+
+      //this di global scope
+      console.info(this); //window
+
+      //this di local scope (function)
+      function sample() {
+        console.info(this);
+        function inner() {
+          console.info(this);
+        }
+        inner(); //window
+      }
+      sample(); //window
+
+      //this di Object Method
+      const person = {
+        name: "leinto",
+        sayHello: function (value) {
+          //anonymous function
+          console.info(this); //this mengacu ke person
+          document.writeln(`Hello ${value}, my name is ${this.name}`);
+          //this untuk mengakses properti yg ada di object, dimasukkan ke object method
+        },
+      };
+
+      person.sayHello("kevin"); //hello kevin my name is leinto
+      person.sayHello("lei"); //hello lei my name is leinto
+    </script>
+  </body>
+</html>

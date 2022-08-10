@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolean</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Boolean
+        ● Boolean merupakan wrapper class untuk tipe primitif boolean
+        ● Boolean memiliki method toString() untuk mengkonversi ke String
+        ● Dan memiliki method valueOf() untuk mengkonversi ke tipe boolean primitif
+        ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+        - Jika kita cek typeof new Boolean() maka tipe datanya adl Object, jika ingin mendapatkan data bool, maka
+        harus dikonversi ke tipe data boolean primitif (true/false)
+        */
+
+      //mengkonversi tipe data boolean primitif ke Object Boolean
+      const boolean = Boolean(true);
+
+      console.info(boolean); //true
+      console.info(typeof boolean); //boolean
+      console.info(boolean.toString()); //true : dikonversi ke string (string)
+      console.info(boolean.valueOf()); //true : mendapatkan tipe primitifnya
+    </script>
+  </body>
+</html>

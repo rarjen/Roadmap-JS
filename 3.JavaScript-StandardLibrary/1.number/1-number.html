@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - number merupakan function yg digunakan utk melakukan konversi tipe data number
+        - jk data tdk bisa dikonversi ke number, scr otomatis hasilnya adl NaN
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+        */
+
+      //konversi string to number (flashback dikit ygy)
+      const input = "12345";
+      const number = Number(input); //konversi
+
+      console.info(typeof input); //string
+      console.info(typeof number); //number
+      console.info(number); //12345
+
+      console.info(number("salah")); //NaN, tdk bisa di konversi ke number
+    </script>
+  </body>
+</html>

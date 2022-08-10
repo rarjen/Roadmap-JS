@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>falsy-dan-truthy</title>
+  </head>
+  <body>
+    <script>
+      /*
+      FALSY
+        - falsy / falsey adl value yg ketika dlm konteks boolean, dia dianggap false
+        - ini adl salah 1 fitur unik dari JS, yg berguna, namu kadang juga sering membingungkan
+        - jadi di JS, kondisi itu tdk hanya bisa boolean, tapi diluar boolean pun bisa, namun kita harus tau bbrp data falsy, atau dianggap false
+
+        - di JS kita ada istilah kita konversi data ke boolean, namun ada aturannya. Secara grs besar dibagi mjd 2, yang pertama adl falsy data, jadi grouping data-data yang dianggap false. Ada juga truthy merupakan grouping data-data yg dianggap true
+
+        ***Data Falsy***
+
+        Data dianggap Falsy   |   Keterangan                           |
+        ----------------------|----------------------------------------|
+        false                 |    Boolean false                       |
+        0, -0                 |    Number 0 dan -0 dianggap false      |
+        "", '', ``            |    Semua string kosong dianggap false  |
+        undefined             |    undefined dianggap false            |
+        NaN                   |    NaN dianggap false                  |
+
+
+        TRUTHY
+        - truthy adl kebalikan dari falsy, dimana datanya dianggap true
+        - sederhana sekali sbnrnya utk mengetahui sebuah data itu truty / falsy.
+
+        - object kosong / array kosong dianggap true
+        */
+
+      //contoh
+      let data = "";
+      if (data) {
+        document.writeln(`<p>TRUE</p>`);
+      } else {
+        document.writeln(`<p>FALSE</p>`);
+      }
+    </script>
+  </body>
+</html>

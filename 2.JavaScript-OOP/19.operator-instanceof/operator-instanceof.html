@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Instanceof</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Operator instanceof
+            ● Kadang ada kasus kita ingin mengecek apakah sebuah object merupakan instance dari class
+            tertentu atau bukan
+            ● Kita tidak bisa menggunakan operator typeof, karena object dari class, jika kita gunakan operator
+            typeof, hasilnya adalah “object”
+            ● Operator instanceof akan menghasilkan boolean, true jika benar object tersebut adalah instance
+            object nya, atau false jika bukan
+        */
+      class Employee {}
+      class Manager {}
+
+      const kevin = new Employee();
+      const leinto = new Manager();
+
+      //operator typeof (akan mendeteksi tipe data object)
+      console.info(typeof kevin); //object (salah)
+      console.info(typeof leinto); //object (salah)
+
+      //operator instanceof
+      console.info(kevin instanceof Employee); //true
+      console.info(kevin instanceof Manager); //false
+      console.info(leinto instanceof Employee); //false
+      console.info(leinto instanceof Manager); //true
+
+      /*
+      Operator instanceof di Class Inheritance
+        ● Operator instanceof mendukung class inheritance, artinya instanceof juga bisa digunakan untuk
+        mengecek, apakah sebuah object adalah instance dari class tertentu, atau turunan dari class
+        tertentu?
+      */
+
+      {
+        //Inheritence
+        class Employee {}
+        class Manager extends Employee {}
+
+        const kevin = new Employee();
+        const leinto = new Manager();
+
+        //operator instanceof
+        console.info(kevin instanceof Employee); //true
+        console.info(kevin instanceof Manager); //false
+
+        console.info(leinto instanceof Employee); //true krn turunan dari employee
+        console.info(leinto instanceof Manager); //true krn turunan dari employee
+      }
+    </script>
+  </body>
+</html>

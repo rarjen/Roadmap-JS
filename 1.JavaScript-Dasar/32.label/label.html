@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>label</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - label merupakan penanda yg bisa digunakan dgn kata kunci break & continue
+        - scr default saat kita melakukan break & continue, dia akan melakukan thd perulangan dmn kode
+        break dan continue itu digunakan.
+        - dgn menggunakan label, kita bisa melakukan break dan continue thd perulangan yg kita inginkan,
+        asalkan perulangannya kita gunakan label
+        - untuk membuat label, kita bisa gunakan nama label lalu diikuti dgn : (ttk dua)
+        - fitur label jarang digunakan
+        */
+
+      loopi: for (let i = 0; i < 10; i++) {
+        loopj: for (let j = 0; j < 100; j++) {
+          if (j > 10) {
+            continue loopi; //jika kondisi terpenhui akan melanjutkan loopi
+          }
+          console.info(`${i} - ${j}`);
+        }
+      }
+    </script>
+  </body>
+</html>

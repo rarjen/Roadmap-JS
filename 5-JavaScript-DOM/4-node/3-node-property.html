@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node Property</title>
+  </head>
+  <body>
+    <ul id="menu">
+      <li id="first">First</li>
+      <li id="second">Second</li>
+      <li id="third">Third</li>
+    </ul>
+    <script>
+      //jika kita ingin mengambil node  ul
+      const menu = document.getElementById("menu"); //mengambil node seluruh elemen di dlm block ul menu
+      console.info(menu);
+
+      console.info(menu.childNodes); // mendapatkan semua child Nodes dari ul (berbebntuk node list)
+      // output
+      // NodeList(7) [text, li#first, text, li#second, text, li#third, text]
+      // knp ada text, krn enter antara li dianggap sebagai text kosong
+
+      console.info(menu.children); // mendapatkan semua children dari ul
+      // output
+      // HTMLCollection(3) [li#first, li#second, li#third, first: li#first, second: li#second, third: li#third]
+
+      const second = document.getElementById("second"); //mengambil node li second
+      console.info(second);
+
+      console.info(second.textContent); // misal kita akan mendapatkan dalamnya li second
+      // output
+      // second
+
+      console.info(second.previousSibling); // mendapatkan sibling sebelumnya (text : enter antara li)
+      console.info(second.nextSibling); // mendapatkan sibling setelahnya (text : enter antara li)
+
+      console.info(second.previousElementSibling); // mendapatkan element sebelumnya
+      // output
+      // <li id="first">First</li>
+      console.info(second.nextElementSibling); // mendapatkan element setelahnya
+      // output
+      // <li id="third">Third</li>
+    </script>
+  </body>
+</html>

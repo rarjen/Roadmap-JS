@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Super Constructor</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Super Constructor
+
+            ● Class Inheritance sifatnya seperti Prototype Inheritance
+            ● Bagaimana dengan Constructor Inheritance? Sebenarnya Constructor Inheritance hanyalah 
+            melakukan eksekusi constructor lain dengan tujuan agar property di constructor lain bisa 
+            ditambahkan ke instance object ini
+            ● Dalam kasus ini, jika kita ingin mencapai hasil yang sama, kita bisa menggunakan kata kunci super 
+            di dalam constructor
+            ● Kata kunci super digunakan untuk memanggil constructor super class
+            ● Jika di child class kita membuat constructor, maka kita wajib memanggil parent constructor, 
+            walaupun di parent tidak ada constructor
+        */
+
+      //Super Constructor (1)
+      class Employee {
+        //param tidak wajib diisi dan bahkan bisadiberi nilai default
+        constructor(name) {
+          this.name = name;
+        }
+        sayHello(name) {
+          console.info(`hello ${name}, my name is employee ${this.name}`);
+        }
+      }
+
+      class Manager extends Employee {
+        sayHello(name) {
+          console.info(`hello ${name}, my name is manager ${this.name}`);
+        }
+      }
+
+      const tohru = new Employee("tohru"); //object
+      tohru.sayHello("kanna"); //hello kanna, my name is employee tohru
+
+      const kobayashi = new Manager("kobayashi"); //object memiliki constructor parent (Employee)
+      kobayashi.sayHello("shoutta"); //hello shoutta, my name is manager kobayashi
+
+      // Super Constructor (2) : membuat class turunan memiliki constructor sendiri
+      class Supervisor extends Employee {
+        //param tidak wajib diisi dan bahkan bisadiberi nilai default
+        constructor(name, lastName) {
+          //walaupun parent tidak memiliki constructor harus tetap dipanggil dgn : super();
+          super(name); //memanggil constructor di parents nya
+          this.lastName = lastName;
+        }
+        sayHello(name) {
+          console.info(
+            `hello ${name}, my name is supervisor ${this.name} ${this.lastName}`
+          );
+        }
+      }
+
+      const horikita = new Supervisor("suzune", "horikita"); //object
+      horikita.sayHello("yor"); //hello yor, my name is supervisor suzune horikita
+    </script>
+  </body>
+</html>

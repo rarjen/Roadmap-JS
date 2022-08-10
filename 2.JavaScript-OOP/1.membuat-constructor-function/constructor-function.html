@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - kita sudah belajar tipe data object, dgn cara membuat variable dgn tipe dasta object
+        - namun pembuatan object menggunakan tipe data object, akan membuat object yg selalu unik,
+        sedangkan dalam oop, biasanya kita akan membuat class sebagai cetakan, sehingga bisa membuat
+        object dgn karakteristik yg sama berkali-kali, tanpa harus mendeklarasikan object berkali-kali
+        seperti menggunakan tipe data object
+        */
+
+      //membuat object (unik)
+      const leinto = {
+        firstName: "leinto",
+      };
+      const kevin = {
+        namaDepan: "kevin",
+      };
+
+      /*
+      Membuat Constructor Function
+      - Sebelum EcmaScript versi 6, pembuatan class, biasanya menggunakan function. Hal ini 
+        dikarenakan sebenarnya JavaScript bukanlah bahasa pemrograman yang fokus ke OOP.
+      - Untuk membuat class di JavaScript lama, kita bisa membuat function.
+      - Function ini kita sebut dengan Constructor Function
+
+      */
+
+      /*
+        Membuat Object dari constructor Function
+      - Setelah kita membuat class, jika kita ingin membuat object dari class tersebut, kita bisa 
+        menggunakan kata kunci new, lalu diikuti dengan nama constructor function nya
+      */
+
+      //constructor function
+      function Person() {}
+
+      //membuat object
+      const tohru = new Person(); //object
+      const kanna = new PErson(); //object
+    </script>
+  </body>
+</html>

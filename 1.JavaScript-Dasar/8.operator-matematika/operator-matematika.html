@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Matematika</title>
+  </head>
+  <body>
+    <script>
+      let result = 1 + 2;
+      document.writeln("<p>Result :" + result + "</p>");
+
+      let originalResult = result;
+      result = result - 1;
+      document.writeln(
+        "<p>Original Result: " + originalResult + " Result :" + result + "</p>"
+      );
+
+      let mod = 5 % 3;
+      document.writeln(mod + "<br>");
+
+      let exponen = 5 ** 2;
+      document.writeln(exponen + "<br>");
+
+      //Augmented Assignment
+      let x = 10;
+      x **= 2; // 10^2
+      document.writeln(x + "<br>");
+
+      /*Operator Unary
+      - (+) Menandakan nilai positif
+      - (-) Menadakan nilai Negatif
+      - (++) Increment : Menaikkan 1 angka
+      - (--) Decrement : Menurunkan 1 angka
+      */
+      let inc = 10;
+      inc++;
+      document.writeln(inc + "<br>");
+    </script>
+  </body>
+</html>

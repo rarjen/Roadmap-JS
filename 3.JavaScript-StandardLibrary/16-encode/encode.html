@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>encode</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Encode
+
+            ● Saat kita menulis URL, kadang kita ingin menambahkan informasi tambahan seperti query
+            parameter misalnya
+            ● URL sendiri sudah memiliki standard encoding penulisan URL
+            ● Standard encoding ini dilakukan agar penulisan URL aman ketika diterima oleh server
+            ● Aman disini dalam artian informasi URL tidak berubah
+            ● Contoh paling sederhana, misal, walaupun kita bisa mengirim spasi dalam url, tapi disarankan
+            untuk di encode agar nilai spasi tidak benar-benar terlihat seperti spasi pada URL nya
+        */
+      /*
+       Contoh Masalah Jika Tidak Menggunakan Encode
+
+            ● Misal ada query parameter dengan nama data, lalu kita ingin mengirimkan nilai kesana
+            ● Misal nilainya adalah &eko=eko&, alhasil URL nya akan seperti berikut
+            ● http://contoh.com?data=&eko=eko&
+            ● URL diatas terlihat tidak ada masalah, tapi sebenarnya ketika diterima oleh server, parameter data
+            bernilai kosong, kenapa? karena & dianggap sebagai pemisah antar parameter
+            ● Artinya tanda seperti & dan lain-lain perlu di encode, agar tidak terjadi kesalahan data yang kita
+            kirim
+       */
+
+      {
+        //encodeURI dan decodeURI
+        const url = "http://www.contoh.com/?name=Otniel Kevin Abiel";
+        console.info(url); // http://www.contoh.com/?name=Otniel Kevin Abiel
+
+        const encoded = encodeURI(url);
+        console.info(encoded); // http://www.contoh.com/?name=Otniel%20Kevin%20Abiel (spasi diganti %20)
+
+        const decoded = decodeURI(encoded);
+        console.info(decoded); // http://www.contoh.com/?name=Otniel Kevin Abiel
+      }
+
+      {
+        //encodeURIComponent dan decodeURIComponent
+        const value = "Otniel&Kevin=Abiel";
+        const url = "http://www.contoh.com/?name="; //url aslinya jangan di encode(harus dipisah)
+        console.info(url + value); // http://www.contoh.com/?name=Otniel&Kevin=Abiel
+
+        const encoded = encodeURIComponent(value); //akan melakukan encode pada (&)&(=)
+        console.info(url + encoded); // http://www.contoh.com/?name=Otniel%26Kevin%3DAbiel
+
+        const decoded = decodeURIComponent(value); //decode
+        console.info(url + decoded); // http://www.contoh.com/?name=Otniel&Kevin=Abiel
+      }
+    </script>
+  </body>
+</html>

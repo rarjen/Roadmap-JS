@@ -1,0 +1,18 @@
+OOP
+- oop adl sudut pandang bahasa pemrograman yang berkonsep object.
+- ada banyak sudut pandang bahasa pemrograman, namun OOP adl yg sgt populer.
+- ada bbrp istilah yg perlu dimengerti dlm oop, yaitu : object & class.
+
+Object 
+- object adl data yang berisi field / properties / attributes dan method / function / behavior.
+
+Class 
+- class adl blueprint, prototype atau cetakan utk membaut object.
+- class berisikan deklarasi semua properties dan function yg dimiliki Object.
+- setiap object selalu dibuat dari class.
+- dan sebuah class bisa membuat object tanpa batas.
+
+oop di JS
+- JS sendiri sebenarnya sejak awal dibuat sbg bahasa prosedural, bukan bahasa pemrograman berorientasi object.
+- oleh karena itu, implementasi OOP di JS mmg tdk sedetail bahasa pemrograman lain yg mmg dari awal merupakan
+bahasa pemrograman OOP seperti Java atau C++.

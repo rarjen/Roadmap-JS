@@ -1,0 +1,20 @@
+Async Await
+● Async Await adalah fitur di JavaScript yang digunakan untuk mempermudah proses pembuatan 
+kode Promise.
+● Dengan menggunakan Async Await, kita bisa membuat kode Asynchronous dengan gaya 
+Synchronous
+
+
+Async(2)
+● Async digunakan untuk menandakan bahwa Function tersebut adalah Async, dan mengembalikan 
+Promise
+● Dengan menggunakan Async, kita tidak perlu membuat Promise secara manual lagi
+
+Await(3)
+● Await digunakan untuk mendapatkan value hasil dari Promise
+● Await hanya bisa digunakan dalam Async Function
+Note : 
+- Kita biasanya jk ingin mendapatkan value sebuah promise akan menggunakan .then dan buat callback didlmnya.
+- Kita bisa istilahnya menunggu (await) hingga datanya ada lalu diambil valuenya dg menggunakan await.
+
+

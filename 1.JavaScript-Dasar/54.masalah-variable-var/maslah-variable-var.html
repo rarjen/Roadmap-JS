@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>masalah pada variable var</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - var tidak direkomendasikan dan diganti ke let
+        - kenapa?
+        - alasan var tidak direkomendasikan krn var tdk memiliki block scope,
+        artinya dia tdk mengikat ke local scope.
+        - krn mlsh ini, var tdk bisa diprediksi.
+        - kita buat contoh penggunaan var & let
+        */
+
+      //mengguunakan let
+      let i = 20; //global scope
+
+      for (let i = 0; i < 10; i++) {
+        //local scope
+        console.info(`local: ${i}`); // 0-9
+      }
+
+      console.info(`global: ${i}`); // 20
+
+      //menggunakan var
+      //saat membuat variable di global dan di local, seakan-akan yg di dlm local scope meng-override variablenya
+      var j = 20; //global scope
+
+      for (var j = 0; j < 10; j++) {
+        //local scope
+        console.info(`local: ${j}`); // 0-9
+      }
+
+      console.info(`global: ${j}`); // 10
+    </script>
+  </body>
+</html>

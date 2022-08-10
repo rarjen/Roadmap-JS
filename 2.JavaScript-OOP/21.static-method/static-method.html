@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>static-method</title>
+  </head>
+  <body>
+    <script>
+      /*
+      Static Method
+        - sama seperti static field
+        - bila kita menambahkan kata static pada method berarti akan mejd milik class nya
+        - cara mengaksesnya juga sama seperti pada static field
+
+        - kasusny adl saat kita mau bikin utility method, biasanya kita simpan dlm static-method
+        */
+
+      class MathUtil {
+        static sum(...numbers) {
+          let total = 0;
+          for (const number of numbers) {
+            total += number;
+          }
+          return total;
+        }
+      }
+
+      const result = MathUtil.sum(1, 2, 3, 4, 5, 6, 7, 8, 9); //mengakses static-method
+      console.info(result); //45
+    </script>
+  </body>
+</html>

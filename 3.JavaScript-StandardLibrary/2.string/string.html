@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>string</title>
+  </head>
+  <body>
+    <script>
+      /*
+        String
+        ● Tipe data String sudah kita bahas pada materi JavaScript Dasar
+        ● Namun kita belum membahas instance method atau juga instance properties yang terdapat di 
+        String
+        ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+        */
+
+      /*
+       String Instance Method dan Properties
+        ● String sendiri memiliki banyak sekali instance method dan properties
+        ● Hal ini menjadikan untuk memanipulasi data String sangat mudah di JavaScript, seperti mengubah 
+        menjadi lowercase, UPPERCASE, memotong string menjadi array dan lain-lain
+        ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#inst
+        ance_methods
+       */
+
+      const name = "Otniel Kevin Abiel";
+
+      console.info(name.length); //mengetahui pjg string : spasi dihitung
+      console.info(name.toLowerCase()); //menjadikan string huruf kecil
+      console.info(name.toUpperCase()); //menjadikan string huruf besar
+      console.info(name.split(" "));
+      //18
+      //otniel kevin abiel
+      //Otniel Kevin Abiel
+      //Memasukkan string kedalam array yg dipisahkan antara spasi
+
+      //menghapus spasi pada awal dan akhir string spasi antara kata tidak hilang
+      const input = "     wah belajar js nih    ";
+      console.info(input.trim()); //menghapus spasi pada awal dan akhir string spasi antara kata tidak hilang
+      console.info(input.trimStart()); //menghaspus spasi di awal
+      console.info(input.trimEnd()); //menghapus spasi di akhir
+      //wah belajar js nih
+      //wah belajar js nih    "
+      //"     wah belajar js nih
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Element Method</title>
+  </head>
+  <body>
+    <div id="content" class="content">
+      <h1 id="title">Belajar JavaScript DOM</h1>
+      <p id="description">Sedang Belajar JavaScript</p>
+    </div>
+    <script>
+      const description = document.getElementById("description");
+      const title = document.getElementById("title");
+
+      // menghapus tag dari js tanpa hapus tag di html -> element method
+      description.remove(); // menghapus description (p) dari parentsnya
+      title.remove(); // menghapus title (h1) dari parentsnya
+
+      // element-property
+      console.info(content.children); // HTMLCollection [h1#title, title: h1#title]
+      console.info(title.textContent); // mendapatkan data di dlm title
+
+      //CONTOH Documentation Element.after()
+      let container = document.createElement("div"); //membuat tag div (container)
+      let p = document.createElement("p"); // membuat tag p
+      container.appendChild(p); // memasukkan p sebagai child dari div (container)
+      let span = document.createElement("span"); // membuat tag span (span)
+
+      p.after(span); // meletakan span setelah sibling p
+
+      console.log(container.outerHTML);
+      console.log(container.children); // HTMLCollection(2) [p, span]
+      console.log(p.nextElementSibling); // p merupakan sibling dari span
+      // "<div><p></p><span></span></div>"
+    </script>
+  </body>
+</html>

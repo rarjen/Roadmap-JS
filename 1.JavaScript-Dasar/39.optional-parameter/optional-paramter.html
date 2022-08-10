@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>optionalparameter</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - scr default, param di function itu optional.
+        - kita tidak wajib mengisi value nya ketika memanggil function.
+        - jika tdk ada value yg kita kirim ke param saat memanggil function, maka secara otomatis
+        param tsb bernilai undefined
+        */
+
+      function sayHello(firstName, middleName, lastName) {
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+      }
+
+      sayHello(); //tdiak akan error, ketiga param bernilai undefined.
+      sayHello("leinto"); //tdk akan error, middle dan last name undefined
+      sayHello("leinto", "otniel", "kevin", "abiel"); //jk kelebihan. tdk error, abiel tidak akan ditampung kedalam param
+
+      //ini bisa jadi maslh(bahaya) bila kita salah ingin mengirim param, dan tidak kelihatan error nya.
+    </script>
+  </body>
+</html>

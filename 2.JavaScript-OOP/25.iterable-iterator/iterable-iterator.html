@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iterable - Iterator</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Iterable & Iterator
+        - Salah 1 fitur di ES6 adl iterable
+        - iterable adl object yg memiliki standarisasi
+        - dgn mengikuti standarisasi iterable, scr otomatis kita bisa melakukan iterasi terdapat data
+        tsb dgn menggunakan perulangan for...of
+        - contoh yg sudah mengikuti standarisasi iterable adl string, array, object, dll
+        */
+
+      /*
+        Cara Kerja Iterable & Iterator
+        - jk kita mengikuti kontrak iterable, maka object yg kita buat bisa dilakukan iterasi menggunakan
+        for...of
+        - setiap kita melakukan perulangan, object iterator akan dibuat
+        - hal ini menjadi aman jk kita melakukan iterasi berulang-ulang, krn iterator baru akan dibuat
+        terus menerus
+        */
+
+      //Membuat kontrak Counter Iterator Result
+      class CounterIteratorResult {
+        constructor(value, done) {
+          this.done = done;
+          this.value = value;
+        }
+      }
+
+      //Membuat Kontrak Counter Iterator
+      class CounterIterator {
+        constructor(value, max) {
+          this.value = value;
+          this.max = max;
+        }
+
+        next() {
+          try {
+            if (this.value > this.max) {
+              return new CounterIteratorResult(this.value, true);
+            } else {
+              return new CounterIteratorResult(this.value, false);
+            }
+          } finally {
+            this.value++;
+          }
+        }
+      }
+
+      //Membuat kotrak Counter Iterable
+      class Counter {
+        constructor(value, max) {
+          this.value = value;
+          this.max = max;
+        }
+
+        //method, mengikuti kontrak iterable
+        [Symbol.iterator]() {
+          return new CounterIterator(this.value, this.max);
+        }
+      }
+
+      //Menggunakan Counter Iterable
+      //Ini alasan kita bisa menggunakan perulangan for..of
+      //ini krn for..of merupakan implementasi dari kontrak iterable
+      const counter = new Counter(1, 10);
+      for (const element of counter) {
+        console.info(element);
+      }
+    </script>
+  </body>
+</html>

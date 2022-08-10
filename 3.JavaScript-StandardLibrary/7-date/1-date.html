@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>date</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Date
+        ● JavaScript memiliki tipe data untuk representasi waktu dan tanggal, yaitu Date
+        ● Date merupakan representasi milisecond sejak tanggal 1 Januari 1970, atau dikenal dengan Epoch
+        & Unix Timestamp
+        ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+        */
+
+      /*
+        - Membuat Object Date, kita bisa menggunakan new Date(), dimana terdapat constructor param
+        -> new Date() : membuat date saat ini
+        -> new Date(year, date, month) : membuat date dgn tgl
+        -> new Date (year, month, date?, hour?, minute?, second?, milis?) : membuat date dgn param sampai milis
+        -> new Date(timestamp) : Membuat date dari epoch atau unix timestamp
+
+        - tanda tanya berarti adl optional, boleh diisi atau tidak
+        */
+
+      const date1 = new Date();
+      console.info(date1); //date dan waktu saat ini (tiapkali dieksekusi)
+
+      //misal kita akan menentukan tanggalnya
+      const date2 = new Date(2001, 12, 01);
+      console.info(date2);
+
+      //misal kita akan membuat detail waktunya hingga ke milis
+      const date3 = new Date(2001, 12, 01, 16, 15, 9, 123);
+      console.info(date3); //di console milis tidak terlihat tapi sebenarnya ada
+
+      //saat kita ingin mengetahui current millisnya berapa
+      const date4 = new Date(1658483306455);
+      console.info(date4); //akann menampilkan waktu saat millis di copy
+      //Fri Jul 22 2022 16:48:26 GMT+0700 (Western Indonesia Time)
+    </script>
+  </body>
+</html>

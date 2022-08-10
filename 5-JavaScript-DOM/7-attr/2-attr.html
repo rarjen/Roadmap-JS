@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attr (Attribute)</title>
+  </head>
+  <body>
+    <img
+      id="logo"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/2048px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png"
+      alt="PZN Logo"
+    />
+    <script>
+      // mendapatkan key dan value attribute
+      // attribute di img : id, serc, alt
+      const logo = document.getElementById("logo"); // mengambil element dengan id logo
+      const src = logo.getAttributeNode("src"); // mengambil attribute src di dlm elemen img dgn id logo
+
+      //mengambil key attribute src
+      console.info(src.name); // src
+
+      // mengambil value dari attribute src
+      console.info(src.value); // https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/2048px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png
+
+      {
+        //Atr Value (sering digunakan)
+
+        const logo = document.getElementById("logo"); // mengambil element dengan id logo
+        const src = logo.getAttribute("src"); // mengambil attribute src di dlm elemen img dgn id logo
+
+        // langsung mengambil value di dlm attribute src
+        console.info(src); // https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/2048px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png
+      }
+    </script>
+  </body>
+</html>

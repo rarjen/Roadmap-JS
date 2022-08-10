@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object-property-name-dan-value</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Object Property Name & Value
+            ● Object juga memiliki static method untuk digunakan mengambil semua properties names dan
+            values
+            ● Object.values() digunakan untuk mengambil semua property value
+            ● Object.getPropertyNames() digunakan untuk mengambil semua properti name
+            - semuanya memiliki pengembalian array
+            - function lainnya : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+        */
+
+      const person = {
+        firstName: "otniel",
+        middleName: "kevin",
+        lastName: "abiel",
+      };
+
+      //mengambil semua property value
+      console.info(Object.values(person)); //values dimasukkan dlm bentuk array
+
+      //memgambil semua nama property di dlm object
+      console.info(Object.getOwnPropertyNames(person)); //nama properti dimasukkan dlm bentuk array
+    </script>
+  </body>
+</html>

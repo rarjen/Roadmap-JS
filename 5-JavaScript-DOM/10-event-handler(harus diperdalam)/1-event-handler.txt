@@ -1,0 +1,28 @@
+Event Handler
+● Node memiliki kemampuan bereaksi terhadap suatu kejadian, misal kejadian di klik, mouse di atas 
+node tersebut, dan lain-lain
+● Ada banyak sekali jenis kejadian yang bisa kita buatkan aksinya ketika kejadian tersebut terjadi, 
+atau dikenal dengan nama Event Handler
+● Ada dua cara kita menambahkan Event Handler ke Node, menggunakan Event Target atau Global 
+Event Handler
+● https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
+● https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
+
+// Ada 2 macam membuat event handler, yaitu :
+
+Event Target (2)
+● Event Target merupakan parent class dari Node, artinya semua Node memiliki kemampuan dari 
+Event Target
+● Pada Event Target, kita bisa menggunakan method addEventListener(type, callback) untuk 
+menambahkan Event Handler
+● https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
+
+
+Global Event Handler (3)
+● Selain menggunakan Event Target, untuk menambahkan Event Handler, kita juga bisa 
+menggunakan Global Event Handler
+● Global Event Handler bukanlah sebuah super class, hanya kontrak yang bisa kita gunakan untuk 
+menambah event handler sesuai dengan type event nya
+● https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
+
+

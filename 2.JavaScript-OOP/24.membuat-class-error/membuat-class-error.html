@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>membuat-class-error</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - Walaupun JS sudah memiliki standard class error
+        - namun alangkah baiknya, kita membedakan tiap jenis error
+        - utk membuat error sendiri scr manual sangatlah mudah, cukup membuat class turunan dari class error
+        - dn jgn lupa tambahkan param message, agar bisa dikirimkan ke param constructor class error
+        */
+
+      //Class ValidationError
+      //digunakann utk membedakan tiap" error : databse validation error, api validation error, dsb. harus dibedakan
+      class ValidationError extends Error {
+        constructor(message, field) {
+          super(message); //mengakses dan mengirim param (message) ke constructor parent (class Error)
+          this.field = field;
+        }
+      }
+
+      class MathUtil {
+        static sum(...numbers) {
+          if (numbers.length === 0) {
+            //parameter message, field
+            throw new ValidationError(
+              "Total parameter harus lebih dari 0",
+              "numbers"
+            ); //memberitahukan error
+          }
+          let total = 0;
+          for (const number of numbers) {
+            total += number;
+          }
+          return total;
+        }
+      }
+
+      try {
+        const result = MathUtil.sum();
+        console.info(result);
+        //jika ada error maka yg berhenti adl di block try saja
+      } catch (error) {
+        if (error instanceof ValidationError) {
+          //inilah keuntungan error class manual, kita bisa menambhakan param errornya dimana (field)
+          //memanggil properti field
+          console.error(
+            `Terjadi error di field ${error.field} dengan error: ${error.message}`
+            // Terjadi error di field numbers dengan error: Total parameter harus lebih dari 0
+          );
+        } else {
+          console.error(`Terjadi Error: ${error.message}`); //Total parameter harus lebih dari 0
+        }
+      } finally {
+        //contohnya adl di bahasa pemrograman yg bisa connect ke database digunakan utk menutup koneksi ke db
+        console.info("kode program selesai"); //akan ttp dieksekusi walaupun error atau tidak
+      }
+
+      console.info("program dilanjutkan");
+    </script>
+  </body>
+</html>

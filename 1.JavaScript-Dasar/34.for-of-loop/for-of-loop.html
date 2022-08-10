@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for-of-loop</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - jk for in digunakan utk melakukan iterasi berupa property/index, berbeda dgn for of, ini digunakan
+        utk melakukan iterasi terhadap isi value dari iterable object, seperti array, string dll.
+        - apapaun data yang iterable (string, array, dll) dapat menggunakan for in.
+        - for of tdk bisa digunakan utk melakukan iterasi data di object, krn object bukanlah iterable.
+        */
+
+      //for of pada array
+      const names = ["otniel", "kevin", "abiel"];
+
+      for (const name of names) {
+        //mengambil value dari index di dalam array
+        document.writeln(`<p>${name}</p>`);
+      }
+
+      //for of pada string
+      const fullName = "otniel kevin abiel";
+      for (const name of fullName) {
+        document.writeln(`<p>${name}</p>`); // mengiterasi semua setiap karakter di dlm string
+      }
+
+      //bukti bahwa string adl iterable, dapat diakses menggunakan index seperti di dlm array
+      const name = "kevin";
+      console.info(name[1]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+Pengenalan HTTP
+● HTTP singkatan dari Hypertext Transfer Protocol
+● HTTP merupakan protokol untuk melakukan transmisi hypermedia document, seperti HTML, 
+JavaScript, CSS, Image, Audio, Video dan lain-lain
+● HTTP awalnya di desain untuk komunikasi antara Web Browser dan Web Server, namun saat ini 
+sering juga digunakan untuk kebutuhan lain
+
+Client Server
+● HTTP mengikuti arsitektur client dan server
+● Client mengirimkan HTTP Request untuk meminta atau mengirim informasi ke server
+● Dan server membalasnya dengan HTTP Response dari HTTP Request yang diterima

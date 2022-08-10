@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tipe Data Array</title>
+  </head>
+  <body>
+    <script>
+      /*
+      ARRAY
+      - Array di JS bersifat dinamis seperti pada php, artinya bisa bertambah sendiri saat kita memasukkan data ke dalam array
+
+      OPERASI PADA ARRAY
+      array.push() : menambahkan data ke array.
+      array.length : Untuk mendapatkan pjg array.
+      array[index] : mendapatkan data di posisi index.
+      array[index] = value : mengubah data di posisi index.
+      delete array[index] : menghapus data di posisi index, namun index tidak bergeser.
+
+      PERLU DIINGAT
+      - Data di dlm array tdk ada batasan data nya.
+      - kita bisa memasukkan data apapun ke dlm array.
+      - bahkan kita dapat memasukkan array kedalam array.
+      */
+
+      let arrayNama = ["Otniel", "Kevin", "Abiel"];
+
+      //Menambah Data Array;
+      const arrayKosong = []; //Array kosong
+      arrayKosong.push("Leinto");
+      arrayKosong.push("Leinto777");
+      arrayKosong.push("Leinto737");
+      arrayKosong.push("Leinto747");
+      arrayKosong.push("Boeing 737", "Airbus A320");
+      arrayKosong.push("Boeing 777", "Boeing 787", "Boeing 747");
+      arrayKosong.push(["Semarang", "Indonesia"]);
+
+      console.table(arrayKosong);
+
+      //coba
+      const arrayBil = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      let length = arrayBil.length;
+      let jumlah = 0;
+      for (i = 0; i < length; i++) {
+        jumlah += arrayBil[i];
+      }
+      document.writeln(jumlah);
+
+      //Array di dlm array (multidimensional array) 2D, bisa ditambah lagi menjadi dimensi tak terhingga;
+      let arrays = ["Otniel", "kevin", (alamat = ["Semarang", "Indonesia"])];
+      console.table(arrays);
+    </script>
+  </body>
+</html>

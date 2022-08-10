@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - destructuring adl fitur yg bisa digunakan utk membongkar value"nya di array
+        atau object ke dlm variable-variable.
+        - fitur ini sangat mempermudah kita saat ingin mengambil data dari array atau object tanpa harus
+        melakukan pengambilan data satu persatu.
+        */
+      {
+        //mengambil data di array
+        //secara manual
+        const names = ["boeing", "airbus", "fokker"];
+        const firstName = names[0];
+        const middleName = names[1];
+        const lastName = names[2];
+
+        console.info(firstName); //boeing
+        console.info(middleName); //airbus
+        console.info(lastName); //fokker
+
+        //Destructuring array
+        console.info("Destructuring Array:");
+        const planes = ["boeing", "fokker", "airbus", "bombardier", "sukhoi"];
+        let [firstPlane, middlePlane, lastPlane, ...others] = planes; //destructuring
+        //...others : spread syntax, memasukkan sisa data kedalam array.
+
+        console.info(firstPlane); //boeing
+        console.info(middlePlane); //fokker
+        console.info(lastPlane); //airbus
+        console.info(others); //sisanya : bomabrdier, sukhoi di tampung sebagai array di dlm ...others
+      }
+
+      {
+        //mengambil data di Object
+        console.info("Destructuring Object:");
+        const person = {
+          firstName: "otniel",
+          lastName: "kevin",
+          address: {
+            street: "Jln. Semarang",
+            city: "semarang",
+            country: "indonesia",
+          },
+          hobby: "coding",
+          channel: "blm ada wkwk",
+        };
+
+        //mengambil data manual
+        const firstNama = person.firstName;
+        const country = person.address.country;
+        console.info(`${firstNama}, ${country}`); //otniel, indonesia
+
+        //Destructuring Object
+        let { firstName, lastName, address, ...others } = person; //nama properti harus sama di dlm object person
+        console.info(firstName); //otniel
+        console.info(lastName); //kevin
+        console.info(address); //address
+        console.info(others); //sisa datanya dimasukkan kedalam array, (hobby, channel)
+      }
+
+      {
+        //Destructuring Nested Object
+        console.info("Destructuring Nesdted object");
+        const person = {
+          firstName: "otniel",
+          lastName: "kevin",
+          address: {
+            street: "Jln. Semarang",
+            city: "semarang",
+            country: "indonesia",
+          },
+          hobby: "coding",
+          channel: "blm ada wkwk",
+        };
+
+        const {
+          firstName,
+          lastName,
+          address: { street, city, country },
+          ...others
+        } = person;
+
+        console.info(firstName); //otniel
+        console.info(lastName); //kevin
+        console.info(street); //Jln. Semarang
+        console.info(city); //semarang
+        console.info(country); //indonesia
+        console.info(others); //sisa datanya dimasukkan kedalam array, (hobby, channel)
+      }
+
+      {
+        /*
+        Destructuring Function Parameter
+        - destructing tdk hanya bisa dilakikan di variable, tapi jugha bisa dilakukan di function param
+        - hal ini membuat kita mudah ketika ingin mengambil nested data dlm array / object dlm function
+        */
+
+        //Destructuring di Function Parameter (1) object
+        console.info("Destructuring Function Parameter(1) object:");
+        //jika object menggunakan kurung kurawal
+        function displayPerson({ firstName, middleName, lastName }) {
+          console.info(firstName);
+          console.info(middleName);
+          console.info(lastName);
+        }
+
+        const person = {
+          firstName: "otniel",
+          middleName: "kevin",
+          lastName: "abiel",
+        };
+
+        displayPerson(person);
+
+        {
+          //CONTOH BUAT SENDIRI
+          //Destructuring di Function Parameter (1) array
+          console.info("Destructuring Function Parameter(1) array :");
+          function displayPerson([firstName, middleName, lastName]) {
+            console.info(firstName); //boeing
+            console.info(middleName); //airbus
+            console.info(lastName); //fokker
+          }
+
+          const person = ["boeing", "airbus", "fokker"];
+          displayPerson(person);
+        }
+
+        //Contoh PZN dengan array
+        console.info("Destructuring Function Parameter(2) ARRAY:");
+        function sum([first, second]) {
+          return first + second;
+        }
+        console.info(sum([10, 10])); //20
+        console.info(sum([120, 10])); //130
+
+        //contoh sendiri
+        function name([namaDepan, namaBelakang]) {
+          return `hello, ${namaDepan} ${namaBelakang}`;
+        }
+
+        console.info(name(["kevin", "abiel"])); //hello, kevin abiel
+      }
+
+      {
+        /*
+        Default Value
+        - yg paling menarik di destructuring adl, kita bisa menambahkan default value.
+        - misal kita melakukan destructuring value thd array, ternyata tdk ada datanya, maka kita
+        bisa menambahkan default value
+        - begitu juga pada object, jika ternyata property nya tdk ada, mk kita bisa 
+        menambahkan default value
+        */
+
+        //default value di array
+        const names = ["android", "ios"];
+        const [firstName, middleName = "linux", lastName = "windows"] = names; //mirip seperti parameter-default-value
+        //linux tidak akan diapkai krn hanyas sebagai default value
+        console.info(firstName); //android
+        console.info(middleName); //ios
+        console.info(lastName); //windows
+
+        //default value di object
+        const f1 = {
+          firstTeam: "redbull",
+          secondTeam: "ferrari",
+          thirdTeam: "mercedes",
+        };
+        const {
+          firstTeam,
+          secondTeam,
+          thirdTeam = "any",
+          fourthTeam = "haas",
+        } = f1;
+        console.info(firstName); //refbull
+        console.info(secondTeam); //ferrari
+        console.info(thirdTeam); //mercedes
+        console.info(fourthTeam); //haas
+      }
+
+      {
+        /*
+        Menggunakan Nama Variable Lain
+        - saat kita destructuring array, kota bisa dgn mudah membuat nama variable sesuka kita
+        - namun pada saat melakukan destructuring, kita harus membuat nama variable sama dgn
+        properti
+        kita juga bisa menggunakan nama variable lain saat melakukan destructuring object
+        jika kita mau
+        */
+
+        //mengubah nama variabel
+        const person = {
+          firstName: "doraemon",
+          middleName: "nobita",
+          //   lastName: "giant",
+        };
+
+        //destructuring
+        const {
+          //nama variabel diubah tdak harus sesuai dengan nama properti
+          firstName: namaDepan,
+          middleName: namaTengah,
+          lastName: namaBelakang = "sizuka", //default value
+        } = person;
+
+        console.info(namaDepan); //doraemon
+        console.info(namaTengah); //nobita
+        console.info(namaBelakang); //sizuka
+      }
+    </script>
+  </body>
+</html>

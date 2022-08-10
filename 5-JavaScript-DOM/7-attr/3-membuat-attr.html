@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membuat Attr</title>
+  </head>
+  <body>
+    <a id="anchor"></a>
+    <img id="logo" />
+    <script>
+      const logo = document.getElementById("logo"); // mengambil element dgn id logo (img)
+
+      const src = document.createAttribute("src"); // membuat attribute src
+
+      // memberikan value di dlm attribute src
+      src.value =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/2048px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png";
+
+      // memasukkan attribute dan value ke dalam element yg memiliki id logo (img)
+      logo.setAttributeNode(src);
+
+      //cara langsung membuat nama attribute dan value attribute, lalu dimasukkan ke dalam alement id logo
+      logo.setAttribute("alt", "Logo Bayern Munchen");
+
+      //coba sendiri
+      const anchor = document.getElementById("anchor"); // mendapatkan element di dlm id anchor (a)
+      anchor.textContent = "Link Google Translate"; // mengisi value di dlm anchor (tag a)
+      anchor.setAttribute("href", "https://translate.google.com/"); // membuat key dan value attribute di dlm anchor
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menerima data di AJAX</title>
+  </head>
+  <body>
+    <h1 id="response"></h1>
+    <p id="response2"></p>
+    <script>
+      const ajax = new XMLHttpRequest();
+      ajax.open("GET", "api/hello.json");
+
+      // menggunakan addEventListener "load"
+
+      ajax.addEventListener("load", function () {
+        const json = JSON.parse(ajax.responseText); // mengambil data di ajax dan konversi ajax kedalam json
+        const header = document.getElementById("response");
+        const paragraph = document.getElementById("response2");
+
+        header.innerHTML = json.response; // memanggil attribute (properti) response pada json
+        paragraph.innerHTML = json.name;
+      });
+      ajax.send(); // mengirim request
+    </script>
+  </body>
+</html>

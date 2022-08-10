@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>In Operator</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - In operator digunakan utk mengecek apakah sebuah property ada di dlm object atau tidak
+        - jk properti ada, maka hasilnya true, jk sebaliknya maka false
+        - tdk hanya di object, in juga bisa digunakan utk mengecek index dia array.
+
+
+        PERINGATAN
+        - In operator hanya akan mengecek apakah sebuah properti / index ada adtau tidak
+        - jadi walaupun nilai properti atau index undefined atau null, maka akan ttp dianggap ada
+        */
+
+      //contoh
+      const dataMhs = {
+        "nama lengkap": "otniel kevin abiel",
+        nim: "a11.2020.13015",
+        umur: 21,
+      };
+
+      console.info(`Data : ${["nama lengkap"] in dataMhs}`); //true
+      console.info(`Data : ${"alamat" in dataMhs}`); //false
+
+      //contoh pzn
+      const person = {
+        firstName: "otniel",
+        middleName: "kevin",
+        lastName: "abiel",
+        fullName: "otniel kevin abiel",
+      };
+
+      if ("fullName" in person) {
+        // false
+        document.writeln(`Hello ${person.fullName}`);
+      } else {
+        document.writeln(`Hello`);
+      }
+
+      const names = {
+        personName: undefined,
+      };
+      //   delete names.personName; // sama dengan names.personName = undefined
+
+      console.info(`undefined properti: ${"personName" in names}`); //true
+
+      const arrayData = [null, "leinto", null];
+
+      console.info(`null array value: ${0 in arrayData}`); //true
+    </script>
+  </body>
+</html>

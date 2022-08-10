@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+  </head>
+  <body>
+    <h1 id="text">Click Yellow Box Below!</h1>
+    <div
+      id="canvas"
+      style="width: 500px; height: 500px; background-color: yellow"
+    ></div>
+    <script>
+      // membuat program yg mengetahui posisi x dan y (koordinat) dari mouse saat di click
+      const canvas = document.getElementById("canvas");
+      const text = document.getElementById("text");
+
+      //param tergantung pada detail event nya, jika event click maka param yg dikirim adl mouse event
+      // event harus disesuaikan dengan event nya
+      // keyPressed pun ada event nya sendiri yg bernama Keyboard event press
+      canvas.onclick = function (event) {
+        text.textContent = `You clicked at (${event.x}, ${event.y})`;
+      };
+
+      //jika kita ingin mendapatkan data detial event nya kita bisa tambahkan param eventnnya
+    </script>
+  </body>
+</html>

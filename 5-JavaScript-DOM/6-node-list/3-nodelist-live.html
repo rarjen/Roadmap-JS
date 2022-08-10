@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NodeList Live</title>
+  </head>
+  <body>
+    <ul id="menu1">
+      <li id="first">First</li>
+      <li id="second">Second</li>
+      <li id="third">Third</li>
+    </ul>
+
+    <ul id="menu2">
+      <li id="otniel">Otniel</li>
+      <li id="kevin">Kevin</li>
+      <li id="abiel">Abiel</li>
+    </ul>
+    <script>
+      const menu1 = document.getElementById("menu1");
+      const list1 = menu1.childNodes;
+      console.info("Sebelum ditambah element baru :s");
+      console.info(list1); // NodeList(7) [text, li#first, text, li#second, text, li#third, text]
+
+      //Contoh sendiri menambhakna data kedalam li
+      const fourth = document.createElement("li");
+      fourth.textContent = "Fourth";
+      menu1.appendChild(fourth); // membuat element id dan menambahkan ke child menu1
+
+      //contoh PZN
+      menu1.appendChild(document.createElement("li")); // membuat element id dan menambahkan ke child menu1
+
+      console.info("Setlah ditambah 2 elemen li baru: "); // akan langsung berubah
+      console.info(list1); // NodeList(9) [text, li#first, text, li#second, text, li#third, text, li, li]
+    </script>
+  </body>
+</html>

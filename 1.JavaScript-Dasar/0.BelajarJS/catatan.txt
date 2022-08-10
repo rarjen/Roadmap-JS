@@ -1,0 +1,10 @@
+JS yang dipentingkan adl Paradigma Functional
+
+RoadMap JS :
+1. Dasar JavaScript
+2. JavaScript OOP
+3. JavaScript Standard Library
+4. JavaScript Modules
+5. JavaScript DOM (Document Object Model)
+6. Todolist : Studi Kasus
+7. JavaScript Async

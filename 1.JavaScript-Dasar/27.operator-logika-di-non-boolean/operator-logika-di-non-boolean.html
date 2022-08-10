@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>operator-logika-di-non-boolean</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - operator logika AND(&&) dan OR (||) digunakan untuk dua data boolean.
+        - namun berbeda di JS, kita bisa menggunakan operator logika AND dan OR utk tipe data non boolean.
+
+        OPERATOR OR(||) di non boolean
+        - operator logika OR(||), membaca dari kiri ke kanan.
+        - operator ini akan mengambil nilai pertama truthy.
+        - jika tdk ada satupun yg bernilai truthy, maka yg terakhir yg akan diambil.
+
+        OPERATOR AND (&&) di Non Boolean
+        - Operator logika AND(&&), membaca dari kiri ke kanan.
+        - operator ini akan mengambil nilai pertama yg falsy
+        - jika tidak ada satupun yang bernilai falsy, maka yg terakhir yg akan diambil
+        */
+
+      //contoh OR
+      console.info("hello" || ""); //hello
+      console.info("" || []); //[] (array)
+      console.info("0" || "NOL"); //0
+      console.info(0 || "NOL"); //NOL
+      console.info(null || "null"); //"null"
+      console.info(undefined || "undefined"); //"undefined"
+      console.info(0 || "" || false); //false , ketiga data falsy maka data terakhir yang diambil
+
+      //Kapan kita memakai ini? :
+
+      const person = {
+        firstName: "otniel",
+        lastName: "kevin",
+      }; //misal kita akan mengambil data dari object, bila firtName tdk ada (falsy), maka akan otomatis diambil ke lastName
+
+      const name = person.firstName || person.lastName; //diambil firstName, krn data truthy
+      console.info(name); //otniel
+
+      //perbedaan dengan coalescing adlah data haruslah null, maka jika firstName berisi string kosong akan tetap melakukan print string kosong
+      //sedangkan dalam operator ini hanya mengambil data truthy
+
+      //contoh nullish-coalescing
+      const names = {
+        firstName: "",
+        lastName: "kevin",
+      };
+      const name_ = names.firstName ?? names.lastName;
+      console.info(name_); // string kosong
+
+      //contoh AND
+      console.info("hello" && ""); //''
+      console.info("" && []); //""
+      console.info("0" && "NOL"); //"NOL"
+      console.info(0 && "NOL"); //0
+      console.info(null && "null"); //null
+      console.info(undefined && "undefined"); //undefined
+      console.info(0 && "" && false); // 0
+    </script>
+  </body>
+</html>

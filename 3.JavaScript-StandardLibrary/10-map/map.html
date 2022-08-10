@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Map (jarang digunakan lebih sering lgsng pake Object)
+
+        ● Map merupakan representasi dari struktur data key-value
+        ● Map mirip dengan tipe data object, hanya saja pada Map, semua method untuk manipulasi data
+        sudah disediakan
+        ● Map mengikuti kontrak iterable, sehingga bisa di iterasi secara default
+        ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+        */
+
+      //map
+
+      const map = new Map();
+      map.set("Name", "Otniel Kevin Abiel"); //key value
+      map.set("Address", "Semarang, Indonesia");
+      map.set("Age", 21);
+
+      console.info(map); //map(3) terdapat entries yang berisi pasangan antara key dan valuenya
+      console.info(map.get("Name")); //mendapatkan value di key Name : Otniel Kevin Abiel
+      console.info(map.get("Age")); //21
+
+      //print data menggunakan for..of
+      for (const element of map) {
+        console.info(element);
+        //melakukan output entries tiap key (pasangan antara key dan value)
+        //output
+        // (2) ['Name', 'Otniel Kevin Abiel']
+        // (2) ['Address', 'Semarang, Indonesia']
+        // (2) ['Age', 21]
+      }
+
+      //print data menggunakan forEach loop
+      map.forEach((value, key) => {
+        //value dlu baru key
+        console.info(`${key} : ${value}`);
+        //output
+        //Name : Otniel Kevin Abiel
+        //Address : Semarang, Indonesia
+        //Age : 21
+      });
+
+      //cara mengetahui panjang object (contoh sendiri)
+      const person = {
+        firstName: "otniel",
+        middleName: "kevin",
+        lastName: "abiel",
+      };
+
+      const size = Object.keys(person).length;
+      console.info(size); //3
+    </script>
+  </body>
+</html>

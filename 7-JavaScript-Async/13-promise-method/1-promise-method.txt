@@ -1,0 +1,24 @@
+Promise Method
+● Promise memiliki tiga method yang bisa kita gunakan 
+● then() untuk mendapatkan atau mengubah data ketika Promise sukses
+● catch() untuk mendapatkan data error ketika Promise gagal
+● finally() akan dieksekusi ketika terjadi sukses atau gagal pada Promise
+● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#i
+nstance_methods
+
+then()
+- Misal Promise nya sukses yang berarti resolve dipanggil, kita bisa membuat eventListeners nya bisa kita
+tambahkan di bagain then(). Kita bisa ambil datanya saja atau konversi ke data lain.
+
+Semua method diatas returnya adlalah promise lagi
+
+Promise Static Method (memanggil dari classnya)
+● Promise juga memiliki beberapa static method
+● Promise.all() digunakan untuk mengeksekusi beberapa promise sekaligus dan menunggu semua 
+hasil promise nya sampai selesai 
+● Promise.any() digunakan untuk mengeksekusi beberapa promise sekaligus dan mengambil hasil 
+promise paling cepat
+● Dan lain-lain
+● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#s
+tatic_methods
+

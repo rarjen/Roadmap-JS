@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mengubah element dengan InnerHTML</title>
+  </head>
+  <body>
+    <div id="content">
+      <!-- h1 ditimpa oleh innerHTML -->
+      <h1>Title</h1>
+    </div>
+    <script>
+      const content = document.getElementById("content");
+      content.innerHTML = "<h1>This is Title</h1><p>This is Paragraph</p>"; // hampir sama dengan membuat element menggunakan createElement()
+      //Jika sudah ada tag di element maka dengan innerHTML ini akan menimpa tag yang ada di dlm element content
+    </script>
+  </body>
+</html>

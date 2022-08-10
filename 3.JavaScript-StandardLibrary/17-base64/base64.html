@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>base64</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Base64
+
+            ● Base64 merupakan binary to text encoding, representasi binary data dalam format string
+            ● Base64 merupakan format text data yang aman untuk dikirimkan di web
+            ● Base64 merupakan encoding yang biasanya digunakan ketika perlu mengirim data dari client ke
+            server
+            ● Karena encoding Base64 merupakan text, oleh karena itu sangat aman digunakan pada query
+            param URL atau text body dalam form
+            ● https://developer.mozilla.org/en-US/docs/Glossary/Base64
+
+            - misal kita akan mengirimkan data gambar, biar lebih mudah kita bisa encode mjd base64, artinya dlm
+            representasi text
+            - jika kita mengirim data yg kompleks ke server aman sekali menggunakan base64 ini, 
+            semua nya akan di encode dan ketika di decode hasilnya akan tetap sama 
+        */
+
+      const original = "Otniel&Kevin=Abiel";
+      console.info(original); // Otniel&Kevin=Abiel
+
+      const encoded = btoa(original);
+      console.info(encoded); // T3RuaWVsJktldmluPUFiaWVs
+
+      const decoded = atob(encoded);
+      console.info(decoded); // Otniel&Kevin=Abiel
+
+      const kode = (kata) => {
+        return btoa(kata);
+      };
+      const dekode = (kata) => {
+        return atob(kata);
+      };
+
+      let hasil = kode("Saya Mencintai kamu");
+      console.info(hasil); //Output : U2F5YSBNZW5jaW50YWkga2FtdQ==
+
+      let hasilDekode = dekode("U2F5YSBNZW5jaW50YWkga2FtdQ==");
+      console.info(hasilDekode); // Output : Saya Mencintai Kamu
+    </script>
+  </body>
+</html>

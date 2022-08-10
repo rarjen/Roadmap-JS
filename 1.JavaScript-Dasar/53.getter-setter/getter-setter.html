@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>getter dan setter</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - getter dan setter adl kemampuan membuat function yg berbeda utk mengambil data (Getter)
+        dan mengubah data (Setter) pada sebuah property di Object
+        - dgn menggunakan getter & setter, kita bisa melakukan hal apapun dlm function
+        sebelum sebuah properti di akses atau diubah, misal menambah validasi dll.
+
+        - di dlm properti kita bisa membaut getter dan setter.
+        - fitur ini sangat dibutuhkan JAVA & PHP, namu JS juga punya fitur ini.
+        - di JS fitur ini tdk terlalu populer
+        */
+
+      //getter
+      const person = {
+        firstName: "lei",
+        lastName: "leinto",
+
+        //getter
+        get fullName() {
+          return `${this.firstName} ${this.lastName}`;
+        },
+
+        //setter
+        set fullName(value) {
+          const array = value.split(" ");
+          this.firstName = array[0];
+          this.lastName = array[1];
+        },
+      };
+
+      //memanggil get fullName()
+      console.info(person.fullName); // lei leinto
+      person.firstName = "otniel"; //mengubah value properti di dlm object
+      console.info(person.fullName); //otniel leinto
+
+      person.fullName = "Uzumaki Naruto"; //sebelum ada setter maka tidak akan di eksekusi
+      console.table(person); //uzumaki naruto
+
+      person.fullName = "Uzumaki boruto"; //sebelum ada setter maka tidak akan di eksekusi
+      console.table(person); //uzumai boruto
+    </script>
+  </body>
+</html>

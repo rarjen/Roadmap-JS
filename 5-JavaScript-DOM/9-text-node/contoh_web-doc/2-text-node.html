@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Node</title>
+  </head>
+  <body>
+    <p>
+      Through-hiking is great!
+      <strong>No insipid election coverage!</strong> However,
+      <a href="https://en.wikipedia.org/wiki/Absentee_ballot"
+        >casting a ballot</a
+      >
+      is tricky.
+    </p>
+    <script>
+      const para = document.getElementsByTagName("p")[0]; // Reads the paragraph
+      para.removeChild(para.childNodes[1]); // Delete the strong element
+
+      console.log(`'${para.childNodes[0].wholeText}'`); // 'Through-hiking is great!
+    </script>
+  </body>
+</html>

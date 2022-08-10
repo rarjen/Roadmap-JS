@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator di Attribute Selector</title>
+  </head>
+  <body>
+    <div class="otnielleinto.ok"></div>
+    <div class="kevin"></div>
+    <div class="abiel.lei"></div>
+    <script>
+      const elements = document.querySelectorAll("div[class^='kevin']"); // menseleksi value attribute class dengan awalan kevin
+      const elements2 = document.querySelectorAll("div[class$='.lei']"); // menseleksi value attribute class dengan akhiran .lei
+      const elements3 = document.querySelectorAll("div[class*='leinto']"); // menseleksi value attribute class yang mengandung string leinto
+
+      console.info(elements); // NodeList [div.kevin]
+      console.info(elements2); // NodeList [div.abiel.lei]
+      console.info(elements3); // NodeList [div.otnielleinto.ok]
+    </script>
+  </body>
+</html>

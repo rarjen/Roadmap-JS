@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>error-handling (penanganan error)</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Error Handling 
+        - saat terjadi error di kode program JS, kadang kita tdk ingin program terhenti.
+        - di JS, kita bisa menangkapnya jika terjadi error
+        - kita bisa menggunakan try catch statement utk menangkap error
+        - pada block try, kita akan mencoba mengakses kode program yg bisa menyebabkan error, dan jika
+        terjadi error, block try akan berhenti dan otomatis masuk ke block catch
+        - jika tidak terjadi error, block catch tdk akan di eksekusi
+        */
+
+      /*
+        Kata kunci finally
+        - kadang kita ingin melakukan sesuatu entah itu terjadi error ataupun tdk
+        - dlm try catch, kita bisa menambahkan block finally
+        - block finally ini akan selalu dieksekusi stlh try catch selesai, entah terjadi error atau tidak,
+        block finally akan selalu di eksekusi
+        */
+
+      /*
+        Try Finally
+        - katas kunci finally juga bisa digunakan tanpa perlu mengakses menggunakan catch
+        - biasanya ini digunakan dlm kasus tertentu
+        */
+
+      class MathUtil {
+        static sum(...numbers) {
+          if (numbers.length === 0) {
+            throw new Error("Total parameter harus lebih dari 0"); //memberitahukan error
+          }
+          let total = 0;
+          for (const number of numbers) {
+            total += number;
+          }
+          return total;
+        }
+      }
+
+      try {
+        const result = MathUtil.sum();
+        console.info(result);
+        //jika ada error maka yg berhenti adl di block try saja
+      } catch (error) {
+        //jika terjadi error pada block try akan mengeksekusi block ini
+        console.info(`Terjadi Error: ${error.message}`); //Total parameter harus lebih dari 0
+        //tdk akan di eksekusi bila tdk terjadi error
+      } finally {
+        //contohnya adl di bahasa pemrograman yg bisa connect ke database digunakan utk menutup koneksi ke db
+        console.info("kode program selesai"); //akan ttp dieksekusi walaupun error atau tidak
+      }
+
+      console.info("kevin"); //program ini dilanjutkan ut dieksekusi
+
+      //Contoh Try Finally
+      class Counter {
+        #counter = 0;
+
+        next() {
+          try {
+            return this.#counter; //mengembalikan nilai ke counter
+          } finally {
+            this.#counter++; //sekaligus ditambahkan angkanya
+          }
+        }
+      }
+
+      const counter = new Counter();
+      console.info(counter.next()); //0
+      console.info(counter.next()); //1
+      console.info(counter.next()); //2
+      console.info(counter.next()); //3
+      console.info(counter.next()); //4
+
+      //kota bisa menggunakan try finally pada kasus-kasus tertentu
+    </script>
+  </body>
+</html>

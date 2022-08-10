@@ -1,0 +1,4 @@
+Tipe Data
+    ● DOM memiliki representasi data
+    ● Tidak terlalu banyak tipe data yang terdapat di DOM
+    ● Oleh karena itu, sebenarnya DOM sangat sederhana, namun penggunaannya sangat bermanfaat

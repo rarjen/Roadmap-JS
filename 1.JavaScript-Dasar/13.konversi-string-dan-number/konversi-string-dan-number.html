@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konversi String to Number</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - Data yang diinputkan user selalulah bertipe string.
+        - Untuk mengolahnya kita perlu melakukan konversi string to number.
+
+        parseInt(String) : Konversi dari String ke Number (bil. bulat).
+        parseFloat(String) : Konversi dari string ke number (bil. pecahan).
+        Number(string) : Konversi dari string ke number.
+        number.toString() : Konversi dari number ke string.
+        */
+      let value1 = "1";
+      let value2 = 1;
+      const sum = value1 + value2;
+      document.writeln(`<p>${sum}</p>`); // output akan 11 karena akan mengoutputkan tipe data string
+
+      //Konversi string to number
+      let value3 = parseInt("1"); //Misal user melakukan input di html form dikonversi dari string ke bil. bulat
+      let value4 = 1;
+      const sum2 = value3 + value4;
+      document.writeln(`<p>${sum2}</p>`); // Output 2
+
+      document.writeln(`<p>${parseInt("1.1")}</p>`); //Output 1, krn hanya menerima bil bulat, maka decimal di hiraukan
+      document.writeln(`<p>${parseFloat("1.1")}</p>`); //Dirubah menjadi pecahan
+      document.writeln(`<p>${Number("1.1")}</p>`); //Number itu flexible bisa jadi int / float
+
+      //Konversi number to string
+      const a = 1;
+      const b = 2;
+      const total = a + b;
+
+      document.writeln(`<p>${total.toString()}</p>`); //output 3 dalam tipe data string
+    </script>
+  </body>
+</html>

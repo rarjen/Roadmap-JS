@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>constructor-inheritence</title>
+  </head>
+  <body>
+    <script>
+      /*
+      ● Dalam constructor kita biasanya membuat property baik itu berisi value ataupun function
+      ● Di dalam constructor, kita bisa memanggil constructor lain, dengan begitu kita bisa mewarisi 
+      semua property yang dibuat di constructor lain tersebut
+      ● Untuk memanggil constructor lain, kita bisa menggunakan NamaConstructor.call(this, parameter)
+      */
+
+      //constructor-inheritence
+      function Employee(firstName) {
+        this.firstName = firstName;
+        this.sayHello = function (name) {
+          console.info(`hi ${name}, my name is ${this.firstName}`);
+        };
+      }
+
+      //inheritence (mewarisi semua property dan method employee)
+      function Manager(firstName, lastName) {
+        Employee.call(this, firstName); //NamaConstructor.call(this, parameter, parameter-n)
+        this.lastName = lastName;
+      }
+
+      const kevin = new Manager("otniel", "kevin");
+      console.info(kevin); //menampilkan constructor manager dg properti yang sudah diisi
+      kevin.sayHello("tanjiro"); //hi tanjiro, my name is otniel
+    </script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise Method</title>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>Id :</td>
+          <td id="id"></td>
+        </tr>
+        <tr>
+          <td>Name :</td>
+          <td id="name"></td>
+        </tr>
+        <tr>
+          <td>Price :</td>
+          <td id="price"></td>
+        </tr>
+      </tbody>
+    </table>
+    <h1 id="status"></h1>
+    <script>
+      // AJAX dengan Promise
+      function getProduct() {
+        return new Promise(function (resolve, reject) {
+          const ajax = new XMLHttpRequest(); // memanggil AJAX
+          ajax.open("GET", "/api/product1.json");
+
+          // Ajax ketika onload (dapat datanya)
+          ajax.onload = function () {
+            if (ajax.status === 200) {
+              resolve(ajax.responseText); // saat berhasil atau ada datanya maka melakukan print respone ajax {success:true}
+            } else {
+              reject(`Error Get Product, Response ${ajax.status}`); // saat error maka akan mengambalikan responseText
+            }
+          };
+          ajax.send();
+        });
+      }
+
+      getProduct() // ini hanya akan mendapatkan promise saja
+        /*
+      cara membaca :
+      - Jika response yg dikrim sukses maka akan melakukan konversi string kedalam json
+      - setelah itu akan melakukan print kedalam element
+      */
+
+        // pada then ini kita bisa melakukan konversi
+        .then(function (response) {
+          // konversi json string ke object
+          //   console.info(JSON.parse(response));
+          return JSON.parse(response);
+        })
+        .then(function (json) {
+          // melakukan print kedalam element
+          document.getElementById("id").innerHTML = json.id;
+          document.getElementById("name").innerHTML = json.name;
+          document.getElementById("price").innerHTML = json.price;
+        })
+        // Bisa juga langsung di konversi
+        /*
+        .then(function (response) {
+          const json = JSON.parse(response);
+          document.getElementById("id").innerHTML = json.id;
+          document.getElementById("name").innerHTML = json.name;
+          document.getElementById("price").innerHTML = json.price;
+        })
+        */
+        .catch(function (err) {
+          document.getElementById("id").innerHTML = err;
+          document.getElementById("name").innerHTML = err;
+          document.getElementById("price").innerHTML = err;
+        })
+        .finally(function () {
+          document.getElementById("status").innerHTML = "Akan tetap dieksekusi"; // tetap dieksekusi walaupun sukes / error
+        });
+    </script>
+  </body>
+</html>

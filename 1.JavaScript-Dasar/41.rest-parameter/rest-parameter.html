@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rest parameter</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - rest param adl fitur dmn kita bisa mengirim data sebanyak-banyaknya pada 1 param, scr otomatis akan
+        dikonversi mjd array.
+        - utk membuat rest param, ada ketentuannya.
+        - rest param hanya boleh ada di 1 function, tdk boleh lebih dari 1.
+        - rest param hanya boleh berada di posisi plg akhir, tdk boleh di depan atau ditegah, 
+        kecuali cuma ada 1 param yg dijadikan sebagai rest param.
+        - di bahasa pemrograman lainnya ini dibilang variable argument.
+        */
+
+      function sum(name, ...data) {
+        //param bisa berisi 1 saja yang berperan sbg rest param
+        //param data di konversi kedalam array
+        let total = 0;
+        for (const item of data) {
+          //karena data adalah array, kita bisa menggunakan for of
+          total += item;
+        }
+        console.info(`total ${name} is ${total}`);
+      }
+
+      sum("banana", 2, 3, 4, 5, 6, 7, 8, 9); //param tidak ada batasnya
+
+      /*
+      SPREAD SYNTAX
+      - kadang kita terlanjur memilki data berupa array.
+      - tapi untunganya kita bisa mengirim array ke rest param
+      - kita bisa menggunakan ...(ttk 3x) diikuti dengan array-nya ketika memanggil function
+      - fitur ini dinamakan spread syntax;
+      */
+
+      //contoh
+
+      const array = [1, 2, 3, 4, 5];
+
+      function sumArray(...data) {
+        let total = 0;
+        for (const iterator of data) {
+          //mengambil value didalam index array
+          total += iterator;
+        }
+        document.writeln(`${total}`);
+      }
+
+      sumArray(...array); //15, spread syntax
+
+      /*
+      ARGUMENTS OBJECT
+      - sblm ada fitur rest param, di JS sudah ada fitur yg bernama arguments object.
+      - ini adl fitur dmn kita bisa mengambil semua param dalam benruk array dgn menggunakan 
+      object bernama arguments.
+      - arguments scr otomatis bisa digunakan di function.
+      - namun perlu diingat, bahwa utk JS saat ini, lebih baik disarankan menggunakan rest param dibanding
+      argumrnts object
+      */
+
+      //Arguments Object
+      function oldSum() {
+        let total = 0;
+        for (const iterator of arguments) {
+          //arguments akan otomatis mengambil semua param yang dikirimkan
+          total += iterator;
+        }
+        document.writeln(`<p>${total}</p>`);
+      }
+
+      function args() {
+        console.info(arguments);
+      }
+      //kelemahan arguments adl kita tidak bisa menentukan tiap" variable nya, krn semua akan dimasukkan ke dlm array
+
+      oldSum(1, 2, 3, 4, 5, 6, 7, 8, 9); // 45
+      args(1, 2, 3, 4, 5, 6, 7, 8, 9); //array arguments
+    </script>
+  </body>
+</html>

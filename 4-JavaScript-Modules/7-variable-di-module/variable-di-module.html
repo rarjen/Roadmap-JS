@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>variable di module</title>
+    <!-- import module 1 -->
+    <script type="module" src="scripts/variable.js"></script>
+    <!-- import module 2 -->
+    <script type="module" src="scripts/variable2.js"></script>
+  </head>
+  <body>
+    <script type="module">
+      /*
+        Variable di Module
+
+            ● Salah satu hal yang membingungkan pada variable di JavaScript adalah ketika kita membuat
+            variable di global scope, maka variable tersebut bisa diubah nilainya oleh file JavaScript lain
+            ● Saat kita menggunakan module, ketika kita buat variable, maka variable tersebut hanya berada
+            pada module tersebut, tidak bisa digunakan di module lain
+        */
+      import { name } from "./scripts/variable.js"; //import module 1
+      import { name } from "./scripts/variable2.js"; //import module 2
+      console.info(name); //otniel kevin abiel
+      // ini akan error krn nama variable dari module 1 dan module 2 sama
+      // kita bisa menggunakan nama variable yg sama asalkan di aliaskan (materi selanjutnya)
+    </script>
+  </body>
+</html>

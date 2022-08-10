@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object-assign</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Object Assign
+
+        ● Kadang kita ada kasus menggabungkan semua attribute dari sebuah object ke object lain
+        ● Hal ini bisa kita lakukan dengan menggunakan Object.assign(target, source)
+        */
+
+      //object assign
+      const target = {
+        firstName: "kevin",
+        middleName: "leinto", //ditimpa oleh property source : otniel
+      };
+      const source = {
+        middleName: "otniel",
+        lastName: "abiel",
+      };
+
+      Object.assign(target, source); //Property object source digabungkan ke object target
+
+      console.info(target); //jika ada nama properti yg sama maka property dlm target di timpa oleh source
+      console.info(source); //ttp memiliki 1 property lastName
+    </script>
+  </body>
+</html>

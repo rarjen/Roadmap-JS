@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <script>
+      /*
+      const promise = new Promise(function (resolve, reject) {
+        // masukkan kode yg akan berjalan async disini
+
+        resolve("Success"); // jika data ditepati
+
+        reject("ERR"); // jika terjadi kesalahan dan mengirim pesan kesalahan
+      });
+      */
+
+      // AJAX dengan Promise
+      const promise = new Promise(function (resolve, reject) {
+        const ajax = new XMLHttpRequest(); // memanggil AJAX
+        ajax.open("GET", "/api/product.json");
+
+        // Ajax ketika onload (dapat datanya)
+        ajax.onload = function () {
+          if (ajax.status === 200) {
+            resolve(ajax.responseText); // saat berhasil atau ada datanya maka melakukan print respone ajax {success:true}
+          } else {
+            reject(`Error Get Product, Response ${ajax.responseText}`); // saat error maka akan mengambalikan responseText
+          }
+        };
+        ajax.send();
+      });
+
+      console.info(promise); // melakukan print status promise
+
+      // jika kita lupa memanggil resolve dan reject maka state nya akan pending, dan result undefined
+      // jika error maka state akan jadi reject dan result nya adlah pesan error
+      // jika berhasil maka state akan jadi fullfiled dan resultnya adlaah value yg di dapat
+    </script>
+  </body>
+</html>

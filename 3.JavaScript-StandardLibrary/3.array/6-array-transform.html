@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array-transform</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - Array juga memiliki function yg digunakan utk melakukan transformasi
+        - dilakukan apabila ingin merubah bentuk array, misal dari array a ke array b
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods
+
+        -> map(value => result: Array<result>), melakukan trasnsform tiap value & menghasilkan array resultnya
+
+        -> reduce((resultBefore, value) => result) : result
+            {
+            melakukan transform dgn menggunakan value array dan value selanjutnya, lalu hasilnya dilanjutkan
+            ke iterasi selanjutnya
+            }
+
+        -> reduceRight((resultBefore, value) => result), sama seperti reduce(), namun dilakukan dari blkng
+
+        */
+
+      //   const names = "Otniel Kevin Abiel".split(" "); //bisa memakai variable string ini
+      const names = ["Otniel", "Kevin", "Abiel"];
+      //misal kita akan membuat array dari value names dengan isinya adl string uppercase
+      console.info(names.map((value) => value.toUpperCase())); //berisi array dengan string uppercase
+      //misal kita akan membuat array dari value names dengan isinya adl string lowercase
+      console.info(names.map((value) => value.toLowerCase())); //berisi array dengan string lowercase
+
+      //misal kita akan merubah data didalam array ke dalam string
+      //cara membaca: Otniel dimasukkan kedalam before dan Kevin dimasukkan kedalam value dan di iterasi
+      // dengan format menambahkan spasi tiap data (before + " " + value)
+      const namesReduce = names.reduce((before, value) => before + " " + value);
+      console.info(namesReduce); // Otniel Kevin Abiel
+
+      //kebalikannya
+      const namesReduceRight = names.reduceRight(
+        (before, value) => before + " " + value
+      );
+      console.info(namesReduceRight); //Abiel Kevin Otniel
+
+      //Misal kita akan melakukan total di dlm array
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      const total = numbers.reduce((before, value) => before + value); //55
+      console.info(total);
+
+      //coba sendiri membalikkan string
+      const kata = "otniel";
+      for (let i = kata.length - 1; i >= 0; i--) {
+        console.info(`${kata[i]}`);
+      }
+    </script>
+  </body>
+</html>

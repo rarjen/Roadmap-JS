@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membuat Web Worker</title>
+  </head>
+  <body>
+    <button id="buttonTask">Click Me!</button>
+
+    <script>
+      const worker = new Worker("worker.js");
+      // worker.onmessage = callback // bisa menggunakan ini
+      worker.addEventListener("message", function (message) {
+        console.info(message.data); // mengambil data di dlm message
+      });
+
+      document.getElementById("buttonTask").onclick = function () {
+        worker.postMessage(100000); // perintah melakukan perulangan n-kali
+      };
+
+      //Browser Tidak akan hang krn proses perulangan dijalankan di proses yg berbeda
+    </script>
+  </body>
+</html>

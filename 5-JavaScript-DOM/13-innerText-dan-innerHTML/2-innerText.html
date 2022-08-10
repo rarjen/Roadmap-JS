@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InnerText</title>
+  </head>
+  <body>
+    <p id="content">
+      <script>
+        console.info("Hello World"); // ini dianggap text oleh textContent
+      </script>
+      <b>Otniel</b> Kevin <i>Abiel</i>
+    </p>
+
+    <script>
+      const content = document.getElementById("content");
+
+      // mengambil tag apapun di dlm elemen content
+      // menanggap semua elemen di dlm adalah text
+      console.info(content.textContent); // mengambil semua text di dlm elemen content termasuk di dlm script dan spasi nya di ambil
+
+      // hanya mengambil text di dlm paragraf tidak termasuk script
+      // ini bisa mengetahi text mana yang akan tampil di dlm web
+      // jika ada tag script dia tahu bahwa script tdk akan ditampilkan di web
+      console.info(content.innerText); // Otniel Kevin Abiel
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object-method</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - pada tipe data object, kita sudah membahas ttg property object
+        - krn sebenarnya function juga merupakn salah 1 tipe data, jadi function pun sebenarnya
+        bisa ditambahkan sebagai property di object
+        - cara membuatnya pun sama dgn function sebagai value
+        - function di object kadang disebut juga Object Method
+        */
+
+      //contoh pzn
+      const person = {
+        name: "lei",
+        //function sbg value (anonymous function)
+        sayHello: function (name) {
+          // alert(`hello ${name}`);
+        },
+      };
+
+      //object.property
+      person.sayHello("kevin");
+
+      //boleh seperti ini (membuat fungsi terpisah lalu memasukkan valuenya ke dlm object)
+      function greetings(name) {
+        console.info(`hello ${name}`);
+      }
+      const dataMhs = {
+        name: "leinto",
+        greetings: greetings,
+      };
+      dataMhs.greetings("kevin");
+
+      //menambah method ke obj
+      const object = {
+        name: "abiel",
+      };
+
+      object.sayName = function (name) {
+        console.info(`hello ${name}`);
+      };
+
+      object.sayName("coba");
+
+      //contoh saya
+      const obj = {
+        operator: "jumlah",
+        //anonymous function
+        hasil: function (a, b) {
+          return a + b;
+        },
+      };
+
+      //object kosong
+      const obj2 = {};
+      //arrow function
+      obj2.jumlah = (a, b) => {
+        return a + b;
+      };
+
+      console.info(`hasil dengan arrow: ${obj2.jumlah(10, 10)}`);
+
+      console.info(`hasil: ${obj.hasil(2, 3)}`);
+    </script>
+  </body>
+</html>

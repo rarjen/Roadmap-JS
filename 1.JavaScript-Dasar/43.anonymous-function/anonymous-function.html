@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>anonymous function</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - anonymous function adalah function tanpa nama.
+        - kita bisa membuat anonymous function dlm sebuah variable atau juga kita buat ketika mengisi param
+        - digunakan utk function yang dikirimnya simple
+        */
+
+      //anonymous function
+      let hitung = function (a, b) {
+        return a + b;
+      };
+      console.info(hitung(1, 2));
+
+      //contoh PZN
+      let say = function (name) {
+        console.info(`Hello ${name}`);
+      };
+      say("kevin");
+
+      //anonymous function di parameter
+      function giveMeName(callback) {
+        callback("leinto");
+      }
+
+      giveMeName(function (name) {
+        //anonymous function
+        console.info(`Hello ${name}`);
+      });
+    </script>
+  </body>
+</html>

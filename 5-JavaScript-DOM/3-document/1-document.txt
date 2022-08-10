@@ -1,0 +1,27 @@
+Document
+● Document merupakan representasi object dari halaman web
+● Dalam satu halaman web, terdapat satu document, dan kita tidak perlu membuatnya secara 
+manual, karena otomatis akan ada di browser
+● Untuk mengakses Document, kita bisa gunakan object document
+● https://developer.mozilla.org/en-US/docs/Web/API/Document
+
+
+Document Object (2)
+● Document secara otomatis dibuat dalam browser ketika membuka halaman web, sehingga kita 
+tidak perlu membuat objek Document secara manual
+● Kita bisa langsung menggunakan kata kunci document
+
+Document Property (3)
+● Document memiliki banyak sekali property
+● Property dalam Document bisa kita gunakan untuk melihat semua data yang terdapat dalam 
+document halaman web
+● https://developer.mozilla.org/en-US/docs/Web/API/Document#properties
+
+Document Method
+● Document memiliki banyak sekali method
+● Banyak method yang terdapat di document digunakan untuk memanipulasi data DOM, misal 
+membuat Node, Element, Attribute atau mengambil dan menyeleksi Node di dalam document
+● https://developer.mozilla.org/en-US/docs/Web/API/Document#methods
+
+
+

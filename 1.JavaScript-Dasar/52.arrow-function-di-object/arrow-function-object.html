@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arrow function di object</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - arrow function bisa digunakan di sebagai Object Method.
+        - namun, arrow function tdk bisa diuganakn utk mengakses arguments object, function generator, 
+        kata kunci this, kata kunci super (JS OOP). this pada arrow-function akan mengacu pada window
+        - jadi pastikan mmg arrow function hanya mmg ketika tidak butuh fitur-fitur diatas
+        */
+
+      const person = {
+        nama: "kevin",
+        sayHello: (name) => {
+          console.info(this); // window
+          console.info(`hello, ${name}`);
+          console.info(`hello, ${name}, my name is ${this.nama}`); //hello, lei my name is undefined
+          //ini mengakases window.name
+        },
+      };
+      person.sayHello("lei"); //hello, lei
+    </script>
+  </body>
+</html>

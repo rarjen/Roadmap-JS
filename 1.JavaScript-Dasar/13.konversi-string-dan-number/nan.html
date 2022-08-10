@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaN</title>
+  </head>
+  <body>
+    <script>
+      /*
+        NaN
+        - Bagaimana jk data string yg kita coba konversi ke number bukanlah data yg valid?
+        - Jk data string yg kita coba lakukan konversi bukanlah data valid, maka hasil dari konversi tsb adalah  NaN (Not a Number)
+        - NaN adalah number spesial yg menyebutkan bahwa ini bukanlah number.
+        - Jk NaN dioperasikan dgn data number lainnya, maka hasilnya akan menjadi NaN lagi.
+        */
+
+      document.writeln(`<p>${parseInt("salah")}</p>`); //NaN
+      document.writeln(`<p>${parseFloat("1.1text")}</p>`); //1.1 ,jika karakter ada dibelakang koma masih bisa di tolerir namun jika sebaliknya maka akan return value NaN
+
+      // Number() tdk akan mentolelir kesalahan pada data
+      document.writeln(`<p>${Number("1.1ups")}</p>`); //NaN
+      document.writeln(`<p>${Number("1x")}</p>`); //NaN
+      document.writeln(`<p>${Number("bukan number")}</p>`); //NaN
+
+      //coba
+      let x = "3";
+      if (Number(x)) {
+        console.info(x);
+      } else {
+        console.info(`Data yang diinput '${x}', bukanlah number`);
+      }
+
+      //Operasi pada NaN (Jk NaN dioperasikan dgn data number lainnya, maka hasilnya akan menjadi NaN lagi)
+
+      const a = Number("salah"); //NaN
+      const b = 100;
+      const sum = a + b; //NaN
+
+      document.writeln(`<p>Dihasilkan ${sum}</p>`); //NaN
+
+      /*
+      isNaN() Function
+      - Kadang kita ingin mengecek apakah number itu NaN atau bukan.
+      - Utk melakukan itu, kita bisa menggunakan function isNaN(number).
+      - Hasilnya adalah berupa data boolean, true jika NaN dan false jk bukan.
+      */
+
+      document.writeln(`<p>${isNaN(NaN)}</p>`); //NaN
+      const contoh = "saya";
+      if (isNaN(contoh) == true) {
+        console.info(`Data NaN`);
+      } else {
+        console.info(contoh);
+      }
+    </script>
+  </body>
+</html>

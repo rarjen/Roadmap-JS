@@ -1,0 +1,1 @@
+dalam sample.json kita bisa lihat bahwa sangat mirip denmgan Object pada JS 

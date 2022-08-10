@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arrow-function</title>
+  </head>
+  <body>
+    <script>
+      /*
+      - arrow function adl alternatif pembuatan function yg lebih sederhana dari function biasanya
+      - namun terdapat limitasi dan juga tdk bisa digunakan di semua situasi
+      - dinamakan arrow function krn menggunakan tanda panah =>
+      - berikut contoh bebrapa kekurangan arrow function :
+            - tdk memiliki fitur arguments
+            - tdk dpt menggunakan function generator
+            - tdk bisa mengakses this (function di object)
+            - tdk bisa mengakses super (JS OOP)
+
+      - KEBANYAKAN PROGAMMER JS MEMAKAI ARROW FUNCTION
+       */
+
+      //contoh PZN
+      const sayHello = (name) => {
+        const say = `hello ${name}`;
+        console.info(say);
+      };
+
+      sayHello("kevin");
+
+      //contoh menggunakan rest parameter
+      const tambah = (operator, ...data) => {
+        let result = 0;
+        for (const angka of data) {
+          result += angka;
+        }
+        return `hasil ${operator}, ${result}`;
+      };
+
+      let bilangan = tambah("tambah", 1, 2, 3, 4, 5, 6, 7, 8, 9);
+      console.log(bilangan);
+
+      /*
+      Arrow Function Tanpa Block
+      - jika sebuah arrow function isinya sederhana, misal hanya 1 baris
+      - kita bisa membuat arrow function tanpa menggunakan block
+      */
+
+      //contoh PZN
+      const sayMyName = (name) => console.info(`hello ${name}`); // di dlm arrow hanya ada 1 baris kode
+      sayMyName("leinto");
+
+      //contoh
+      const kurang = (x, y) => console.info(`hasil pengurangan: ${x - y}`);
+      kurang(5, 2);
+
+      /*
+      Arrow Function Return Value
+      - arrow function bisa mengembalikan value, sama seperti function lainnya
+      - jk menggunakan block, maka kita perlu menggunakan return
+      - jk tdk menggunakan block, kita tdk perlu menggunakan return
+      */
+
+      //contoh PZN
+      //Arrow Function Return Value
+      const sum = (x, y) => x + y; //tdk perlu return
+      console.info(sum(10, 10));
+
+      //Arrow Function Tanpa Kurung Parameter : jk parameter hanya 1 kita bisa menghapus kurung param
+      const hello = (name) => console.info(`hello, ${name}`); //krn ada code prettier otomatis ada kurung
+      hello("Otniel kevin abiel");
+
+      /*
+      Arrow Function Sebagai Param
+      - krn arrow function sama seperti anonymous function
+      - jadi kita bisa menggunakan arrow function sbg param function lain
+      */
+
+      //contoh pzn
+      function someName(callback) {
+        callback("lei");
+      }
+      someName((name) => console.info(`helloo ${name}`));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator typeof</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - typeof digunakan utk melihat tipe data sebuah value atau variable.
+        - krn JS merupakan dynamic language, jadi kadang kita perlu mengecek tipe data menggunakan tyepof.
+        - hasil dari operator typeof adl string tipe datanya.
+
+        -> Null : "object"
+        -> BitInt : "bigint"
+        -> symbol : "symbol"
+        -> function : "function"
+        -> lainnya : "object"
+        */
+
+      //Contoh
+      let a = "saya";
+      let type = typeof a;
+      console.info(type);
+
+      //contoh dengan kondisi
+      let data = {
+        name: "Otniel Kevin A", //array juga akan termasuk ke tipe data object
+      };
+
+      if (typeof data === "number") {
+        console.info("Number");
+      } else if (typeof data === "string") {
+        console.info("String");
+      } else if (typeof data === "boolean") {
+        console.info("Boolean");
+      } else if (typeof data === "object") {
+        console.info("Object");
+      }
+    </script>
+  </body>
+</html>

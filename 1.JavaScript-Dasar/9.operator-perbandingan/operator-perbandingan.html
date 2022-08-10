@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operasi Perbandingan</title>
+  </head>
+  <body>
+    <script>
+      /*
+      Operator Perbandingan
+      - Oerator Perbandingan akan mengembalikan nilai true or false;
+
+        OPERATOR
+      - === : Sama Dengan dan Sama Tipe
+      - !=  : Tidak sama dengan
+      - !== : Tidak sama dengan atau Tidak Sama Tipe
+      */
+      let result = 5 == "5";
+      document.writeln("<p>" + result + "</p>"); //Mengembalikan nilai true
+
+      result = 5 === "5";
+      document.writeln("<p>" + result + "</p>"); //mengembalikan nilai false, tipe data berbeda
+
+      result = 5 != "4";
+      document.writeln("<p>" + result + "</p>"); //Mengembalikan bilai true
+
+      result = 5 !== "4";
+      document.writeln("<p>" + result + "</p>"); //Mengembalikan bilai true, krn tipe data berbeda
+
+      result = 5 !== 5;
+      document.writeln("<p>" + result + "</p>"); //Mengembalikan bilai false, krn tipe data & value sama
+
+      result = 5 !== "5";
+      document.writeln("<p>" + result + "</p>"); //Mengembalikan bilai true, krn tipe data berbeda & value sama
+    </script>
+  </body>
+</html>

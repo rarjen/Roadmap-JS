@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API file</title>
+  </head>
+  <body>
+    <form>
+      <label for="username"
+        >Username:
+        <input type="text" id="username" name="username" />
+      </label>
+      <br />
+      <label for="name"
+        >Name:
+        <input type="text" id="name" name="name" />
+      </label>
+      <br />
+      <label for="profile"
+        >Profile:
+        <input type="file" id="profile" name="profile" />
+      </label>
+      <br />
+      <input type="button" id="register" value="Register" />
+    </form>
+    <h1 id="response"></h1>
+    <script>
+      // Inisialisasi file yg akan di upload
+      const form = new FormData();
+      const files = document.getElementById("profile").files;
+      const firstFile = files.item(0);
+      form.append("profile", firstFile);
+
+      function doRegister() {
+        const request = new Request("https://eoh5abz8k5ihj8q.m.pipedream.net", {
+          method: "POST",
+          headers: {},
+          body: form,
+        });
+
+        const response = fetch(request);
+
+        response
+          .then((response) => response.json()) // konversi json
+          .then(function (json) {
+            document.getElementById("response").innerHTML = json;
+          })
+          .catch(function (err) {
+            document.getElementById("response").innerHTML = err;
+          });
+      }
+
+      document.getElementById("register").onclick = doRegister;
+    </script>
+  </body>
+</html>

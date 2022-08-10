@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membuat Element</title>
+  </head>
+  <body>
+    <div id="content" class="content"></div>
+    <script>
+      const content = document.getElementById("content"); // mendapatkan elemen dg id content
+
+      const title = document.createElement("h1"); // membuat tag h1
+      title.textContent = "Belajar JavaScript DOM"; // mengisi data (text) di dlm h1
+      content.appendChild(title); // meletakkan h1 sebagai child dari div content
+
+      const description = document.createElement("p"); // membuat tag p
+      description.textContent = "Sedang Belajar JavaScript DOM"; // mengisi data (text) di dlm p
+      title.after(description); // method meletakkan description sebagai next sibling dari title (Dokumentasi Web)
+      //   title.before(description); // method meletakkan description sebagai previous sibling dari title (Dokumentasi Web)
+      //   content.appendChild(description); // Contoh PZN
+
+      // bukti bahwa tag h1 dan tag p merupakn child dari content
+      console.info(content.children); // HTMLCollection(2) [h1, p]
+
+      // bukti bahwa h1 dan p adalah siblings
+      console.info(title.nextSibling); // <p>Sedang Belajar JavaScript DOM</p>
+      console.info(description.previousSibling); // <h1>Belajar JavaScript DOM</h1>
+    </script>
+  </body>
+</html>

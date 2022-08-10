@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Template</title>
+  </head>
+  <body>
+    <script>
+      /*
+        STRING TEMPLATE
+        
+        - Kita sudah tahu bahwa untuk menambahkan string  dgn data lain, kita bisa menggunakan operator (+).
+        - Namun pada kasus tertentu ini akan menylitkan jika data yg akan ditambahkan sgt banyak.
+        - JS memiliki fitur yg bernama String Template, dimana kita bisa mensubtitusi data dari luar String ke dlm String, seperti mengambil data variable, atau bahkan melakukan operasi matematika.
+        - Untuk menggunakan String Template, cara pembuatan String nya harus menggunakan ` (backtick).         
+       */
+      const name = "Pep Guardiola";
+      const firstName = "Otniel";
+      const middleName = "Kevin";
+      const lastName = "Abiel";
+      const template = `Name : ${name}`;
+      const fullName = `Name : ${firstName} ${middleName} ${lastName}`;
+
+      console.info(template);
+      console.info(fullName);
+    </script>
+  </body>
+</html>

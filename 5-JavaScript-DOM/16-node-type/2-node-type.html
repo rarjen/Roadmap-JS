@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node Type</title>
+  </head>
+  <body>
+    Otniel Kevin Abiel
+    <!-- Hello World -->
+    <h1>This is title</h1>
+    <script>
+      const nodes = document.body.childNodes; // menmgambil semua child nodes di dlm body
+
+      //menggunakan foreach
+      console.info("Dengan for each:");
+      nodes.forEach((node) => {
+        console.info(`${node.nodeType}`);
+      });
+
+      console.info("Dengan for of:");
+      for (const node of nodes) {
+        console.info(`${node} : ${node.nodeType}`);
+      }
+    </script>
+  </body>
+</html>

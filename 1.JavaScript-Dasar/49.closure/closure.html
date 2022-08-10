@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>closure</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - closure adl kombinasi function dan bundel referensi ke data disekitarnya
+        - agak membingungkan untuk pertama kali belajar
+        - kita sudah tau bahwa local scope tdk bisa diakses dari luar scope
+        - dengan kemampuan closure, kita bisa membuat sebuah function di local scope dan referensi
+        ke data di sekitar local scope tsb, keluar scope-nya.
+
+        - jrg sekali ada kasus yg menggunakan closure, jika ada misal kita akan membuat dynamic function
+        */
+
+      //closure
+
+      function createAdder(value) {
+        const owner = "leinto";
+        function add(param) {
+          console.info(owner);
+          return value + param;
+        }
+        return add; //function add() di return kan sbg value pembuatan createAdder()
+        //seakan-akan menggeluarkan return value + param menjadi scope di createAdder
+      }
+
+      const addTwo = createAdder(2);
+      //ini seakan-akan menjadi seperti:
+      //   function addTwo(param) {
+      //     console.info("leinto");
+      //     return 2 + param;
+      //   }
+      console.info(addTwo(10)); //12
+      console.info(addTwo(20)); //22
+
+      const addTen = createAdder(10);
+      console.info(addTen(20)); //30
+    </script>
+  </body>
+</html>

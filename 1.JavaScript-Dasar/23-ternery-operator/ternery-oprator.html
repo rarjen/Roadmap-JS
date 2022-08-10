@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ternery operator</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - ternery operator adl operator sederhana dari if statement
+        - ternery operator terdiri dari kondisi yang di evaluasi, jk menghasilkan true maka nilai pertama diambil, jika false, maka nilai kedua diambil
+        */
+
+      //if statement
+      const nilai = 75;
+      let ucapan;
+
+      if (nilai >= 75) {
+        ucapan = "Selamat anda lulus";
+      } else {
+        ucapan = "anda belum beruntung";
+      }
+      document.writeln(`<p>${ucapan}</p>`);
+
+      //ternery operator (lebih simple) direkomendasikan bila ada operasi yang sederhana
+      const nilaiAkhir = 65;
+      const greetings = nilaiAkhir >= 75 ? "Anda Lulus" : "Coba Lagi"; //Sama seperti if & else
+      document.writeln(`<p>${greetings}</p>`);
+    </script>
+  </body>
+</html>

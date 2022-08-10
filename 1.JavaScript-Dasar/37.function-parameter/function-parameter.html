@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function-parameter</title>
+  </head>
+  <body>
+    <script>
+      function sayHello(firstName, lastName) {
+        document.writeln(`<p>hello ${firstName} ${lastName}</p>`);
+      }
+
+      //memanggil function dgn parameter
+      sayHello("loid", "forger");
+      sayHello("otniel", "kevin");
+
+      //function return value labih dari 1
+      function getScore(value) {
+        if (value > 90) {
+          return "A";
+        } else if (value > 80) {
+          return "B";
+        } else if (value > 70) {
+          return "C";
+        } else if (value > 60) {
+          return "D";
+        } else {
+          return "E";
+        }
+      }
+
+      const predikat = getScore(85);
+      document.writeln(`<p>Predikat: ${predikat}</p>`);
+
+      /* 
+      Menghentikan Ekseskusi Program 
+      - saat kita menggunakan kata kunci return, maka kode stlh return tsb tdk akan dieksekusi.
+      - kita bisa menggunakan return utk menghentikan eksekusi sebuah fungsi.
+      - jika JS menemukan kata kunci return maka program dibawahnya tidak dieksekusi lagi.
+      */
+
+      //contoh
+
+      function isContains(array, searchValue) {
+        for (const value of array) {
+          console.info(`Iterasi value ${value}`); //output iterasi pencarian angka
+          if (value === searchValue) {
+            return true; //negitu sudah ketemu atau true maka prograsm dibawah tidak akan di eksekusi
+          }
+        }
+        return false;
+      }
+
+      const array = [1, 32, 4324, 3, 43, 53, 53, 43, 43, 535, 35, 5];
+      const search = 43; //yang ditemukan adalah 43 pada index ke-4 dan program berhenti mencari karena menamui return true
+      const found = isContains(array, search);
+      document.writeln(`<p>${found}</p>`);
+    </script>
+  </body>
+</html>

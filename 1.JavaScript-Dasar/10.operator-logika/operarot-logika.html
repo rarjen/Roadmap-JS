@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Logika</title>
+  </head>
+  <body>
+    <script>
+      /* Operator Logika
+      - Operator Logika adalah operator untuk dua buah data boolean
+      - Hasil dari operator logika adalah boolean lagi
+
+      && : Dan
+      || : Or
+      !	 : kebalikan
+      */
+
+      let kebalikan = 1;
+
+      if (!kebalikan) {
+        document.writeln("bukan kebalikan");
+      } else {
+        document.writeln("kebalikan" + "<br>");
+      }
+
+      let asben = 75;
+      let uas = 90;
+
+      const lulusAbsen = asben >= 75;
+      document.writeln(lulusAbsen);
+
+      const lulusUjian = uas >= 75;
+      document.writeln(lulusUjian);
+
+      const lulus = lulusAbsen && lulusUjian;
+      document.writeln(lulus);
+    </script>
+  </body>
+</html>

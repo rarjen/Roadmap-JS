@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dynamic module loading</title>
+  </head>
+  <body>
+    <input type="text" id="name" />
+    <input type="button" value="say" id="sayButton" />
+    <script type="module">
+      /*
+      Dynamic Module Loading
+
+            ● Saat kita menggunakan module dengan cara import, maka semua module akan di load
+            ● Pada kenyataannya, kadang kita tidak ingin meload semua module diawal, kita ingin meload
+            module ketika dibutuhkan saja, ini akan menghemat bandwith jaringan juga, karena kita tidak perlu
+            download semua module diawal
+            ● JavaScript mendukung dynamic module loading, caranya kita bisa menggunakan function import(),
+            dimana hasilnya berupa Promise<ModuleObject> (Promise adalah materi yang kompleks, ini akan
+            dibahas di kelas JavaScript Async)
+       */
+      //ini akan ttp di load walaupun kita tdk pernah pakai
+      //ini akan otomatis di download via jaringan
+      // import { alertHello } from "./scripts/alert.js";
+
+      //mengambil element dari id sayButton
+
+      document.getElementById("sayButton").onclick = function () {
+        const name = document.getElementById("name").value; //mengambil value dari id name dan di masukkan ke variable name
+
+        try {
+          if (!name) {
+            throw new Error("Maaf nama tidak boleh kosong");
+          } else {
+            //ini jadi berupa module object
+            //dengan ini maka scripts tidak di load sebelum kita megklik button
+            //return nya jadi promise karn ada then dll (akan dibahas nanti)
+            import("./scripts/alert.js").then(function (module) {
+              module.alertHello(name);
+            });
+            console.info(name);
+            document.getElementById("name").value = ""; //menghapus field
+          }
+        } catch (err) {
+          addalert(err.message);
+        }
+      };
+
+      // contoh dari PZN
+      // document.getElementById("sayButton").onclick = function () {
+      //   const name = document.getElementById("name").value;
+      //   import("./scripts/alert.js").then(function (module) {
+      //     module.alertHello(name);
+      //   });
+      // };
+    </script>
+  </body>
+</html>

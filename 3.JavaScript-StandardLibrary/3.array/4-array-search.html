@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array-search</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - find(value => boolean) : value,       utk mencari data sesuai dgn kondisi (akan berhenti bila data ditemukan)
+        - findIndex(value => boolean) : number, utk mencari data index sesuai dgn kondisi.
+        - includes(value) : boolean,            utk mengecek apakah terdapat data.
+        - indexOf(value) : number,              utk mengecek posisi index data. jk tdk ada retrun -1
+        - lastIndexOf(value) : number,          utk mengecek posisi index data terakhir.
+        */
+
+      const source = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
+
+      //mencari yang value nya lebih dari 3
+      console.info(source.find((value) => value > 3)); //akan langsung menemukan angka 4 dan berhenti
+      //4
+
+      //mencari index dimana angka yg lebih besar dari 3
+      console.info(source.findIndex((value) => value > 3)); //3
+
+      //mencari apakah data x ada di dlm array (true/false)
+      console.info(source.includes(7)); //false
+      console.info(source.includes(3)); //true
+
+      //mencari index dari data x yang ada di dlm array (jika tidak diketemukan return -1)
+      console.info(source.indexOf(5)); //4
+
+      //jika ada data duplikat di dlm array kita menginginkan index data duplikat yg akhir
+      console.info(source.lastIndexOf(5)); //9
+
+      //
+    </script>
+  </body>
+</html>

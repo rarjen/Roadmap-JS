@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function sbg value</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - function tdk hanya bisa digunakan sbg kode program yg dieksekusi, tapi bisa juga sbg value
+        - artinya, function bisa disimpan dalam variable, bisa juga dikirm melalui
+        parameter ke function lainnya;
+        */
+
+      //contoh 1
+      function sum(a, b) {
+        return a + b;
+      }
+
+      function kali(x, y) {
+        return x * y;
+      }
+
+      let hasilSum = sum(10, 20);
+      let hasilkali = kali(hasilSum, 2);
+      let hasilkali2 = kali(sum(5, 5), 2);
+
+      console.info(hasilkali); //60
+      console.info(hasilkali2); //20
+
+      //contoh PZN
+      function sayHello(name) {
+        document.writeln(`<p>hello ${name}</p>`);
+      }
+
+      let say = sayHello; //value function dimasukkan kedalam variable
+
+      sayHello("otniel");
+      say("kevin");
+
+      function giveMeName(callback) {
+        callback("leinto"); // seakan-akan sayHello("leinto")
+      }
+
+      giveMeName(sayHello); //mengirim function //leinto
+      giveMeName(say); //giveMeName(sayHello) //leinto
+
+      //contoh2
+      function jumlah(a, b) {
+        return a + b;
+      }
+
+      let hasilJumlah = jumlah;
+
+      document.writeln(`<p>${hasilJumlah(4, 7)}</p>`); //11
+    </script>
+  </body>
+</html>

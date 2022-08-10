@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>array loop</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Array
+        ● Tipe data Array sudah kita bahas di materi JavaScript Dasar
+        ● Namun kita hanya membahas beberapa instance method yang ada di Array
+        ● Sebenarnya, terdapat banyak sekali Instance Method yang ada di Array, dan kita akan coba bahas
+        beberapa di sini
+        ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+        */
+
+      /*
+        Array Loop
+        ● Sebelumnya kita biasa menggunakan for in dan for of untuk melakukan iterasi Array, namun Array
+        juga memiliki method yang bernama forEach()
+        ● Method forEach bisa digunakan juga untuk melakukan iterasi data array
+        - for eachlebih populer ketimbang for..in / for..of
+        */
+
+      {
+        //array loop
+        const array = ["otniel", "kevin", "abiel"];
+
+        //menggunakan anonymous function
+        array.forEach(function (value, index) {
+          console.info(`${index} : ${value}`);
+        });
+
+        //arrow function
+        array.forEach((value, index) => console.info(`${index} : ${value}`));
+
+        //arrow function tanpa param index, hanya butuh value
+        array.forEach((value) => console.info(value));
+
+        //format JS
+        array.forEach((value) => {
+          return value;
+        });
+      }
+    </script>
+  </body>
+</html>

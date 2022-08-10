@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Table Element</title>
+  </head>
+  <body>
+    <table id="orderRevenue" border="1">
+      <caption>
+        Order Revenue
+      </caption>
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Income</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>January</td>
+          <td>10.000.000</td>
+        </tr>
+        <tr>
+          <td>February</td>
+          <td>20.000.000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total</td>
+          <td>30.000.000</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <script>
+      const orderRevenue = document.getElementById("orderRevenue");
+      console.info(orderRevenue.caption); // mengambil caption di dl table
+      console.info(orderRevenue.tHead); // mengambil head di dlm table
+      console.info(orderRevenue.tBodies); // mengambil body table
+      console.info(orderRevenue.tFoot); // mengambil footer di dlm table
+
+      console.info(orderRevenue.rows); // mrngambil baris di dlm table
+    </script>
+  </body>
+</html>

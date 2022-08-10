@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Search Param</title>
+  </head>
+  <body>
+    <form>
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" />
+      <br />
+      <input type="button" id="buttonSearch" value="Search" />
+    </form>
+    <h1 id="response">Response shows here</h1>
+
+    <script>
+      function doSearch() {
+        const ajax = new XMLHttpRequest();
+
+        // cara manual search param
+        /*
+        const searchValue = document.getElementById("search").value;
+        ajax.open(
+          "GET",
+          `https://hookb.in/eKmrQQxk7gclaRPldEel?search=${searchValue}&filter=&xxx=&yyy=`
+        );
+        */
+
+        // ini akan lebih mudah ketimbang cara manual
+        const param = new URLSearchParams();
+        param.append("search", document.getElementById("search").value);
+        param.append("filter", document.getElementById("search").value);
+
+        // diatas akan menuliskan ini pada URL
+        // "search=xxxx&filter=yyy"
+
+        ajax.open(
+          "GET",
+          `https://hookb.in/K36r1x2RrQiPnWdP3E0Q?${param.toString()}`
+        ); // menggunakan HTTP method GET untuk mendapatkan data dari server
+
+        ajax.onload = function () {
+          const response = document.getElementById("response"); // jika ingin menambah param harus ditambahkan ? setelah domain dan isikan param
+          response.innerText = ajax.responseText;
+        };
+
+        ajax.send();
+      }
+
+      document.getElementById("buttonSearch").onclick = doSearch;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+Apa itu Promise?
+● Promise merupakan proxy untuk sebuah nilai di masa depan (Future) yang belum diketahui saat 
+pembuatan Promise tersebut.
+● Biasa Promise digunakan sebagai proxy untuk proses Async.
+● Penggunaan Promise sangat mudah, dan lebih mirip dengan kode Synchronous.
+● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+Contoh : 
+saat kita ambil data ke server, dan misal kita akan tau bahwa akan ada data product. Tapi kita tidak tahu
+entah kapan data product itu akan datang kpn. Data tsb bisa kita representasikan dalam bentuk promise (janji),
+bahwa data itu akan ada di masa depannya. 
+
+Jadi kita membuat function, contoh getProduct() dan return-nya adl sebuah promise atau janji bahwa akan ada
+data product, namun kapan datanya ada itu tergantung, bisa saja janji ditepati bisa saja tidak

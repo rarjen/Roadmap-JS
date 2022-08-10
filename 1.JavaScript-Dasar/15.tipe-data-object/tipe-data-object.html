@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tipe Data Object</title>
+  </head>
+  <body>
+    <script>
+      /*
+        ASSOCIATIVE ARRAY
+        - Di PHP kita dapat merubah index menjadi string.
+        - Fitur ini disebut associative array atau hash.
+        - Di JS associative array tdk di dukung.
+        - jika memaksa memasukkan data bukan number di index array, maka JS akan merubah tipe data array tsb mjd object, dan ini bisa berbahaya, krn beberapa operasi di array mungkin bisa berubah hasilnya.
+
+        TIPE DATA OBJECT
+        - Tipe data object mirip dgn tipe data array.
+        - yang membedakan adalah index pada tipe data object bisa menggunakan string.
+        - index di object biasanya disebut attributes atau properties, bukan index.
+        */
+
+      //Membuat Object Kosong
+      const orang = {}; //object kosong
+
+      //menambah / Mengubah Property di Object
+      //Keunggulan dibanding array adalah lebih dynamic
+      orang["Nama"] = "Otniel Kevin Abiel";
+      orang["nim"] = "A11.2020.13015";
+      orang["umur"] = 21;
+
+      console.info(orang["nim"]); //Mengakses value dari atribut
+
+      delete orang["umur"]; //Menghapus value dengan mengakses atribut.
+      console.table(orang);
+
+      //Membuat Object dengan properties
+      const person = {
+        "nama panggilan": "Kevin", //petik 2 digunakan apabila properties memiliki spasi
+        nama: "Otniel Kevin Abiel",
+        alamat: "Indonesia",
+        umur: 21,
+      };
+      console.table(person);
+
+      //Mengakses properti object
+      console.info(`Nama: ${person.nama}`); //Dianjurkan mengakses seperti ini
+      console.info(`Alamat: ${person.alamat}`); //Dianjurkan mengakses seperti ini
+      console.info(`Umur: ${person.umur}`); //Dianjurkan mengakses seperti ini
+      document.writeln(`Nama : ${person.nama}`); //Dianjurkan mengakses seperti ini
+      document.writeln(`Nama Panggilan: ${person["nama panggilan"]}`); //mengakses dengan kurung kotak dilakukan apabila properti memiliki spasi
+
+      //Saat membuat web kita akan sering menggunakan tipe data object daripada array, misal saat melakukan display nama barang akan menggunakan data object.
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pure-function-sederhana</title>
+  </head>
+  <body>
+    <script>
+      //contoh web
+      const multiplyByTwo = (num) => {
+        return num * 2;
+      };
+
+      let hasil = multiplyByTwo(5); //10
+      console.info(hasil);
+
+      //contoh saya
+      const tambahBilangan = (a, b) => {
+        return a + b;
+      };
+      let hasilTambah = tambahBilangan(5, 10);
+      console.info(hasilTambah);
+
+      let fullName = (firstName, middleName, lastName) => {
+        return `${firstName} ${middleName} ${lastName}`;
+      };
+      console.info(fullName("otniel", "kevin", "abiel"));
+    </script>
+  </body>
+</html>

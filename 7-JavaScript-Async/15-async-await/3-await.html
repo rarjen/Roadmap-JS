@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Await</title>
+  </head>
+  <body>
+    <script>
+      // Mengambil value dengan then (manual)
+      // Promise<JSON Product>
+      function getProduct() {
+        const request = new Request("/api1/product.json", {
+          method: "GET",
+        });
+        const response = fetch(request);
+
+        // melakukan konversi
+        return response.then((response) => response.json());
+      }
+      // mengambil value di dlm promise
+      getProduct()
+        .then((product) => console.info(product)) // {id: '1234', name: 'HP Pavilion 15', price: 15000000}
+        .catch((err) => {});
+
+      console.info(getProduct()); // return berupa promise
+
+      // Promise<String ProductName>
+      // membuat function get Product name, berbentuk Promise
+      function getProductNamePromise() {
+        // Misal kita akan mengambil value dari get Product namun balikannya adl masih sebuah promise
+        // memiliki return promise
+
+        // const product = getProduct();
+
+        // cara mengolah jika punya balikan promise. biasanya kita menggunakan ini
+        // ini sangat ribet ygy
+        return new Promise(function (resolve, reject) {
+          getProduct()
+            .then((product) => resolve(product.name))
+            .catch((err) => resolve("Product Not Found"));
+        });
+        // disini kita agak sulit krn harus membuat promise 2x
+        // di getProduct kita kita sudah return promise dan oada getProductName kita membuat promise lg dan memanggil get product, jika sukses kita ambil product name, jika error kita reject
+      }
+
+      console.info(getProductNamePromise()); // return Promise
+
+      // Mendapatkan value
+      getProductNamePromise().then((productName) => console.info(productName)); // HP Pavilion 15
+
+      // Dengan Await, kita bisa mengambil data di dlm promise tanpa chaining method .then .catch dsb.
+
+      // ***AWAIT***
+      // Untuk menangani error kita bisa menggunakan Error Handling dengan Try Catch
+      async function getProductNameAsync() {
+        try {
+          // mengambil value di dlm json dgn await
+          const product = await getProduct();
+          return product.name; // return product Name
+        } catch (error) {
+          //   return `Something wrong ${error}`;
+          return "Product Not Found";
+        }
+      }
+
+      getProductNameAsync().then((productName) => console.info(productName)); // HP Pavilion 15
+    </script>
+  </body>
+</html>

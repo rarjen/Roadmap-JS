@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undefined</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - Undefined adl sebuah kata kunci di JS
+        - undefined adalah sebuah tipe data
+        - sebuah variable yang belum ditambahkan nilai, maka artinya variable tsb merupakan tipe undefined
+        - kadang untuk progammer JS pemula, undefined ini mmg agak membingungkan
+        - undefined itu berbeda dengan null di bahasa pemrograman lain
+
+        - biasanya mereprentasikkan data yg belum di definisikan.
+        - misal variable yang blm didefinisikan datanya maka secara default variable tsb adl undefined
+        */
+
+      //Contoh undefined variable value
+      let name; //value defaultnya adalah undefined bila value belum dimasukkan
+      if (name === undefined) {
+        console.info("UNDEFINED");
+      } else {
+        console.info("Defined");
+      }
+
+      //Contoh undefined Array value
+      let names = ["otniel", "kevin"];
+
+      delete names[0]; // ini sama dengan kita melakukan names[0] = undefined;
+
+      if (names[0] === undefined) {
+        console.info("array undefined");
+      } else {
+        console.info(`hello: ${names[2]}`);
+      }
+
+      //contoh undefined object property
+
+      const dataMhs = {
+        // nama: "otniel kevin abiel",
+        // alamat: "semarang",
+        // umur: 21,
+      };
+
+      if (dataMhs.nama === undefined) {
+        console.info("undefined property in object dataMhs");
+      } else {
+        console.info(`Data : ${dataMhs.nama}`);
+      }
+
+      //Jika di bahasa lain apabila value kosong maka akan error, namun di JS tidak akan error namun akan mengembalikan nilai undefined
+    </script>
+  </body>
+</html>

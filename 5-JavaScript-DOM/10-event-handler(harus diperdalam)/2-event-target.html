@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listener</title>
+  </head>
+  <body>
+    <input id="clickMe" type="button" value="Click Me!" />
+    <input id="magic" type="button" value="Click Me for Magic" />
+    <script>
+      const clickMe = document.getElementById("clickMe");
+
+      // saat event terjadi: click, maka akan mengeksekusi function ini
+      // addEventListener(type, callback), ada berbagai macam type event, detail ada di web
+      clickMe.addEventListener("click", function () {
+        clickMe.setAttribute("value", "You Already Clicked Me!");
+        // saat button diubah maka attribute value nya diganti
+      });
+      clickMe.addEventListener("click", function () {
+        console.info("Button Clicked");
+        // saat button diubah maka attribute value nya diganti
+      });
+
+      //Buat Sendiri
+      const magic = document.getElementById("magic");
+
+      magic.addEventListener("click", function () {
+        const body = document.body;
+        const div = document.createElement("div");
+        body.appendChild(div);
+        const h1 = document.createElement("h1");
+        div.appendChild(h1);
+        const img = document.createElement("img");
+        h1.after(img);
+        img.setAttribute("id", "love");
+        img.setAttribute(
+          "src",
+          "https://img.freepik.com/free-vector/silhouette-couple-kissing-heart-background_1048-7352.jpg"
+        );
+        h1.textContent = "I LOVE YOU";
+        magic.setAttribute("value", "I Love You!");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membuat text node (tdk disarankan)</title>
+  </head>
+  <body>
+    <script>
+      //Membuat text node tdk disarankan, kita labih baik langsung membuat elementnya entah paragraf atau heading
+
+      const textNode = document.createTextNode("Ini adalah text node"); // membuat text node dgn value textnya
+      document.body.appendChild(textNode); // meletakkan textNode sebagai child body stelah tag script
+
+      const text = document.body.lastChild; // mengambil text node paling akhir
+      console.info(text); // "Ini adalah text node "
+
+      //Contoh membuat div, paragraf, dan isinya (contoh sendiri)
+      const body = document.body; // deklarasi body
+      const div = document.createElement("div"); // membuat element div
+      body.appendChild(div); // meletakkan div sebagai child body
+      const p = document.createElement("p"); // membuat paragraf
+      div.appendChild(p); // meletakkan paragraf sebagai child div
+      const textNode2 = document.createTextNode(
+        "Ini adapalah paragraf di dlm div yg dibuat"
+      ); // membuat text
+      p.appendChild(textNode2); // meletakkan text sebagi child p (isi paragraf)
+    </script>
+  </body>
+</html>

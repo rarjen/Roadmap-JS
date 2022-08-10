@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Response Status Ajax</title>
+  </head>
+  <body>
+    <h1 id="response"></h1>
+    <p id="response2"></p>
+    <script>
+      function displayResponse(json) {
+        const header = document.getElementById("response");
+        const paragraph = document.getElementById("response2");
+
+        header.innerHTML = json.response; // memanggil attribute (properti) response pada json
+        paragraph.innerHTML = json.name;
+      }
+
+      const ajax = new XMLHttpRequest();
+      //   ajax.open("GET", "api/hello.json");
+      ajax.open("GET", "api/salah.json");
+      // akan terjadi kesalahan dengan kode 404 (kesalahan client yang salah meminta data)
+
+      // menggunakan addEventListener "load"
+      ajax.addEventListener("load", function () {
+        // status 200 adalah OK (request di mengerti dan diproses oleh server)
+        if (ajax.status === 200) {
+          const json = JSON.parse(ajax.responseText); // mengambil data di ajax dan konversi ajax kedalam json
+          displayResponse(json); // output : Terjadi kesalahan dengan status 404
+        } else {
+          displayResponse({
+            response: `Terjadi kesalahan dengan status ${ajax.status}`,
+          });
+        }
+      });
+      ajax.send(); // mengirim request
+    </script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prototype</title>
+  </head>
+  <body>
+    <script>
+      /*
+      Prototype
+        ● JavaScript sebelumnya dikenal dengan pemrograman berbasis prototype
+        ● Memang agak sedikit membingungkan, dan tidak dipungkiri, banyak sekali yang bingung dengan 
+        konsep prototype di JavaScript
+        ● Pada chapter ini, kita akan bahas tentang konsep prototype
+
+      Prototype Inheritence
+        ● Saat kita membuat object dari constructor function, object tersebut disebut instance, semua 
+        property (baik itu value atau method), akan berada di dalam instance object nya
+        ● Setiap kita membuat sebuah constructor function, maka secara otomatis akan dibuatkan 
+        prototype nya, misal ketika kita membuat constructor function Person, maka akan ada 
+        Person.prototype
+        ● Saat kita membuat sebuah object instance, secara otomatis object tersebut adalah turunan dari 
+        Constructor.prototype nya
+        ● Untuk mengakses prototype milih sebuah instance, kita bisa menggunakan __proto__
+      */
+
+      //constructor-function
+      function Person(firstName, lastName) {
+        this.firstName = firstName; //property
+        this.lastName = lastName; //property
+        //method / function
+        this.sayHello = function (name) {
+          console.info(
+            `hello ${name}, my name is ${this.firstName} ${this.lastName}`
+          );
+        };
+      }
+
+      //sebenarnya saat kita membuat instance object, dia sebenarnya ada prototype-nya
+      const tanjiro = new Person("tanjiro", "komado"); //instance object
+      const nezuko = new Person("nezuko", "komado"); //instance object
+
+      console.info(tanjiro);
+      console.info(nezuko);
+
+      /*
+      Menambah Prototype ke prototype
+      ● Property mirip object, dimana kita bisa menambah property baik itu value ataupun method
+      ● Saat kita menambah sebuah property ke Prototype, secara otomatis, semua object instance yang 
+      turunan dari prototype tersebut akan memiliki property tersebut
+      */
+      {
+        //constructor-function
+        function Person(firstName, lastName) {
+          this.firstName = firstName; //property
+          this.lastName = lastName; //property
+          //method / function
+          this.sayHello = function (name) {
+            console.info(
+              `hello ${name}, my name is ${this.firstName} ${this.lastName}`
+            );
+          };
+        }
+
+        const nezuko = new Person("nezuko", "komado"); //instance object
+
+        //sebenarnya saat kita membuat instance object, dia sebenarnya ada prototype-nya
+        const tanjiro = new Person("tanjiro", "komado"); //instance object
+
+        //ini hanya utk instace object eko, tidak akan ada di nezuko
+        tanjiro.sayBye = function () {
+          //ini akan diakses lebih dlu stlh itu prototype (cara kerja prototype inheritence, yg dicek adl di dlm instance)
+          //jika tidak ada akan mencari pada __proto__
+          console.info("GoodBye");
+        };
+
+        console.info(tanjiro);
+        console.info(nezuko);
+
+        /*
+        sebenarnya ada cara lain agar semua instance object memiliki property atau method yg sama 
+        dgn menggunakan prototype
+        */
+
+        //menambahkan prototype ke prototype, bukan kedalam constructor functionnya
+        Person.prototype.sayBye = function () {
+          console.info("goodbye");
+        };
+        Person.prototype.run = function () {
+          console.info(`${this.firstName} is Running`);
+        };
+        Person.prototype.weapons = "sword"; //property dimasukkan ke prototype
+
+        nezuko.run(); //mengakses prototype
+        tanjiro.run(); //mengakes prototype
+        console.info(`${tanjiro.firstName} weapon is :${tanjiro.weapons}`);
+      }
+
+      /*
+      Cara Kerja Prototype Inheritance
+        ● Bagaimana bisa property di prototype diakses dari object instance?
+        ● Ketika kita mengakses property di object instance, pertama akan di cek apakah di object tersebut 
+        terdapat property tersebut atau tidak, jika tidak, maka akan di cek di __proto__ (prototype) nya, jika 
+        masih tidak ada, akan di cek lagi di __proto__ (prototype) yang lebih tinggi, begitu seterusnya, 
+        sampai berakhir di Object Prototype
+      */
+
+      {
+        //contoh sendiri
+      }
+    </script>
+  </body>
+</html>

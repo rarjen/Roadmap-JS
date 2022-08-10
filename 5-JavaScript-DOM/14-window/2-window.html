@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window</title>
+  </head>
+  <body>
+    <p id="content"></p>
+    <p id="location"></p>
+    <script>
+      const content = document.getElementById("content");
+      const lokasi = document.getElementById("location");
+
+      const height = window.screen.height; // property window untuk mengambil ukuran tinggi window monitor
+      const width = window.screen.width; // property window untuk mengambil ukuran lebar window monitor
+      const url = window.location;
+
+      //kita tidak bisa membuat variable location krn sudah dimiliki oleh window
+
+      content.textContent = `Window width (${width}) x height (${height})`;
+      lokasi.textContent = url;
+    </script>
+  </body>
+</html>

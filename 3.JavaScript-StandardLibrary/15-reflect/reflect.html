@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reflect</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Reflect
+            ● Reflect merupakan class yang digunakan untuk mengeksekusi JavaScript function
+            ● Reflect tidak memiliki constructor, dan cara penggunaan Reflect tidak dengan membuat object
+            dengan new Reflect
+            ● Penggunaan Reflect adalah menggunakan banyak sekali static methodnya
+            ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect
+
+            - ini adl static method, tdk utk di instansiasi ke obejct
+        */
+
+      const person = {};
+
+      //istilahnya adalah mengubah data object tanpa menyentuh object scr langsung
+
+      Reflect.set(person, "firstName", "Otniel"); //namaObject, namaKey, namaValue
+      Reflect.set(person, "lastName", "Kevin"); //ini cara untuk mengisi/menguubah object dgn set
+
+      console.info(person); // {firstName: 'Otniel', lastName: 'Kevin'}
+
+      console.info(Reflect.get(person, "firstName")); //mengakses properti firstName(Otniel)
+      console.info(Reflect.get(person, "lastName")); //mengakses properti lastName (Kevin)
+
+      //mengecek property di dlm object
+      console.info(Reflect.has(person, "firstName")); //true
+      console.info(Reflect.has(person, "middleName")); //false
+
+      //function cek property, buat sendiri
+      function cekProp(target, property) {
+        if (Reflect.has(target, property) === false) {
+          console.info(`property ${property} tidak ada`);
+        } else {
+          console.info(`property ${property} ada`);
+        }
+      }
+      cekProp(person, "middleName"); //property middleName tidak ada
+
+      //contoh sendiri
+      const f1Team = {
+        firstTeam: "redbull",
+        secondTeam: "ferrari",
+        thridTeam: "mercedes",
+      };
+
+      cekProp(f1Team, "fourthTeam"); //property fourthTeam tidak ada
+    </script>
+  </body>
+</html>

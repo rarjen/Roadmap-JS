@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>default parameter</title>
+  </head>
+  <body>
+    <script>
+      /*kita bisa memberi value default kedalam parameter, 
+      jk tdk diisi value nya tapi akan otomatis diisi dengan default value
+      */
+      function register(name, gender = "unknown") {
+        console.info(name);
+        console.info(gender);
+      }
+
+      register(); //undefined, unknown
+      register("leinto"); // leinto, unknown
+      register("leinto", "male");
+      register("leinto", undefined); //leinto, unknown, undefined mengatakan bahwa value nya belum di set
+      register("leinto", null); //leinto, null. knp null krn dianggap sudah ada valuenya namun valuenya kosong
+    </script>
+  </body>
+</html>

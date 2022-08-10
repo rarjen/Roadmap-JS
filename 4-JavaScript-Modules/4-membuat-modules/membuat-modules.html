@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>membuat modules</title>
+    <!-- Import JS Modules -->
+    <script type="module" src="scripts/say.js"></script>
+  </head>
+  <body>
+    <script>
+      /*
+        Membuat Module
+        
+            ● Membuat module sangat sederhana, kita cukup membuat file JavaScript saja
+            ● Yang membedakan adalah, saat kita akan meload file JavaScript dari HTML, kita tidak 
+            menggunakan type javascript lagi, melainkan menggunakan type module
+        */
+
+      /*
+        File .js dan .mjs
+        
+            ● Karena File JavaScript Module sebenarnya sama dengan JavaScript, kadang developer 
+            membedakan nama file untuk JavaScript Module menggunakan .mjs
+            ● Hal ini sebenarnya tidak ada kewajiban, hanya saja agar mempermudah ketika tahapan 
+            development, kita bisa dengan mudah membedakan mana file JavaScript biasa, mana file 
+            JavaScript module hanya dengan extension file nya saja
+            ● Pada kelas ini, kita akan tetap menggunakan file .js ketika membuat module, agar tidak 
+            membingungkan untuk pemula
+        */
+
+      //ini akan error. krn module tidak bisa di akses langsung seperti ini
+      sayHello("kevin"); //Uncaught ReferenceError: sayHello is not defined at membuat-modules.html:34:7
+      sayGoodbye("kevin");
+      console.info(name);
+
+      /*
+      Kenapa Error?
+
+        ● Secara default, saat kita menggunakan fitur JavaScript Module, semua kode (function, variable, 
+        class dan lain-lain) tidak akan di ekspos keluar module tersebut
+        ● Jika kita ingin mengekspos kode tersebut, kita harus memberitahunya secara eksplisit (menggunakan kata kunci export)
+      */
+    </script>
+  </body>
+</html>

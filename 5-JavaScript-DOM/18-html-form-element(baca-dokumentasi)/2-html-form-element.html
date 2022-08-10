@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Form Element</title>
+  </head>
+  <body>
+    <form name="commentForm">
+      <label for="comment">
+        Comment : <input id="comment" type="text" name="comment" />
+      </label>
+      <br />
+      <label for="from">
+        From : <input id="from" type="text" name="from" />
+      </label>
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+    <p id="view" class="pesan"></p>
+    <div id="commentList"></div>
+
+    <script>
+      // mengirim parameter event
+      document.querySelector("form[name=commentForm]").onsubmit = function (
+        event
+      ) {
+        event.preventDefault(); // digunakan utk membatalkan aksi yg semestinya/asli bawaan dari form
+        // krn saat form disubmit akan melakukan submit data form kedlm endpoint actionnya mau kemana
+        // kita hanya ingin cukup JS saja yang melakukan, agar tidak di implementasikan oleh form
+
+        const commentList = document.getElementById("commentList");
+        const comment = document.getElementById("comment").value; // mengambil value di dlm element
+        const from = document.getElementById("from").value; // mengambil value di dlm element
+
+        try {
+          if (!comment || !from) {
+            throw new Error("Form tidak boleh kosong");
+          } else {
+            const commentItem = document.createElement("p");
+            commentItem.textContent = `${comment} - ${from}`;
+            commentList.appendChild(commentItem);
+            document.getElementById("view").innerHTML = "";
+          }
+        } catch (error) {
+          document.getElementById("view").innerHTML = error.message;
+        } finally {
+          // akses form via name
+          // document.forms["commentForm"].reset(); // melakukan reset terhadap form
+
+          // reset bisa juga menggunakan query attribute selector
+          document.querySelector("form[name=commentForm]").reset();
+        }
+      };
+    </script>
+  </body>
+</html>

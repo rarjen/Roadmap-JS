@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function-generator</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - function generator adl function yg digunakan utk membuat data generator.
+        - generator adl data yg bisa di iterasi spt array.
+        - utk membuat function generator, kita perlu menggunakan tanda *(bintang) stlh kata function
+        - dan utk mengembalikan data di tiap iterasi, kita bisa menggunakan kata kunci yield diikuti datanya
+        */
+
+      //function generator sederhana
+      function* createNames() {
+        yield "otniel";
+        yield "kevin";
+        yield "abiel";
+      }
+
+      console.log(createNames());
+
+      const names = createNames();
+      console.info(names[0]); //tidak bisa diakses dari index (undefined).
+      //generator itu datanya iterable namun tdk bisa diakses menggunakan index.
+      //generator hanya mirip array namun bukan array
+
+      //krn data iterable maka digunakan for of
+      for (const name of names) {
+        console.info(name);
+      }
+
+      //function generator kompleks
+
+      //saat kita membaut function ini maka akan men-generate sebuah data generator yang isinya adl angka2 ganjil
+      //tdk perlu membuat array dan return ke array
+      //otomatis akan dikrim dengan yield ini;
+
+      //lazy
+      //angka diiterasi saat yield dibuat
+      function* buatGanjil(value) {
+        for (let i = 1; i <= value; i++) {
+          if (i % 2 === 1) {
+            console.info(`yield ${i}`);
+            yield i;
+          }
+        }
+      }
+
+      const angkaGanjil = buatGanjil(100);
+      // for (const angka of angkaGanjil) {
+      //   console.info(angka);
+      // }
+
+      console.info(angkaGanjil); //tdk akan di eksekusi krn data belum diambil
+      //mengambil data manual : next().value
+      console.info(angkaGanjil.next().value); //untuk mengambil value yang ada di dlm generator
+      console.info(angkaGanjil.next().value); //hanya di iterasi 2x krn di dlm genrator progam akan jalan bila data diambil
+
+      /*
+      LAZY EVALUATION
+      - generator itu sifatnya lazy
+      - artinya jika datanya belum kita ambil dari generator, maka yield slenjutnya tidak akan di eksekusi
+      - jadi saat kita ingin membuat perulangan tiada henti bisa, selama tdk kita ambil datanya,
+      dia tdk akan dieksekusi
+      */
+
+      //contoh buat ganjil dengan array
+
+      //eager
+      //yield dibiku=in dlu semua baru diterasi value ganjilnya
+      function buatGanjilArray(value) {
+        const result = [];
+        for (let i = 1; i <= value; i++) {
+          if (i % 2 === 1) {
+            console.info(`yield ${i}`);
+            result.push(i);
+          }
+        }
+        return result;
+      }
+
+      const angkaGanjil2 = buatGanjilArray(100);
+      for (const angka of angkaGanjil2) {
+        console.info(angka);
+      }
+    </script>
+  </body>
+</html>

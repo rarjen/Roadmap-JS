@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nullish-coalescing-operator</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - Nullist value adl null dan undefined
+        - nullist coalescing operator (??) adl operator mirip dgn ternery operator, yg membedakan adl pada kondisi, jika bernilai null / undefined, baru value default nya diambil
+        */
+      let param; //bernilai undefined
+      let data = param;
+
+      if (data === undefined || data === null) {
+        //jika bernilai true maka akan di isikan data
+        //jiak bernilai false, block if ini di skip dan akan melakukan output
+        data = "nilai default"; //mengubah value data
+      }
+
+      console.info(data);
+      console.info(param);
+
+      let parameter = "kevin";
+      let datas = parameter;
+
+      if (datas === undefined || datas === null) {
+        //jika bernilai true maka akan di isikan data
+        //jiak bernilai false, block if ini di skip dan akan melakukan output
+        datas = "nilai default"; //mengubah value data
+      }
+
+      console.info(datas);
+
+      //nullish coalescing operator
+      let a; //bernilai undefined
+
+      let x = a ?? "nilai default";
+      document.writeln(x);
+    </script>
+  </body>
+</html>

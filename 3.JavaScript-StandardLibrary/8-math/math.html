@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>math</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Math
+            ● Math merupakan class di JavaScript yang berisikan static property dan method untuk operasi
+            matematika
+            ● Ada banyak sekali static property dan method di Math
+            ● Math hanya bisa digunakan untuk tipe data Number, tidak bisa digunakan untuk tipe data BigInt
+            ● https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+        */
+
+      //   const array = [10, 11, 9, 13, 8];
+      //math
+      console.info(Math.max(10, 11, 9, 13, 8)); //13 (mencari nilai max)
+      console.info(Math.min(10, 11, 9, 13, 8)); //8 (mencari nilai min)
+      console.info(Math.round(10.5)); //11 (membulatkan ke yang lebih dekat)
+      console.info(Math.round(10.3)); //10 (membulatkan ke yang lebih dekat)
+      console.info(Math.floor(10.8)); //10 (membulatkan ke bawah)
+
+      //coba sendiri (Math.PI = 3,14) -> properties
+      const luasLingkaran = (r) => {
+        return Math.PI * r * r; //(3,14 * r * r)
+      };
+      let hasilLuasLingkaran = luasLingkaran(7);
+      console.info(`Luas Lingkaran : ${hasilLuasLingkaran}`); //153,
+
+      //coba sendiri akar 2 (Math.sqrt()) -> method
+
+      const akar = (x) => {
+        return Math.sqrt(x);
+      };
+
+      let hasilAkar = akar(144);
+      console.info(`akar 144 : ${hasilAkar}`); //akar 144 : 12
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Epoch & Unix Timepestamp</title>
+  </head>
+  <body>
+    <script>
+      /*
+        Epoch & Unix Timestamp
+
+            ● Dalam menggunakan tipe data waktu, biasanya disemua bahasa pemrograman akan mendukung 
+            yang namanya epoch & unix timestamp
+            ● Epoch & Unix timestamp merupakan hitungan miliseconds setelah tanggal 1 Januari 1970
+            ● JavaScript pun mendukung pembuatan waktu dalam bentuk epoch dan unix timestamp
+            ● Untuk mendapatkan waktu saat ini dalam epoch & unix timestamp, kita bisa menggunakan 
+            Date.now()
+            ● Untuk mengubah dari object date ke epoch & unix timestamp, kita bisa menggunakan function 
+            getTime()
+        */
+
+      //Unix Timestamp
+      const timestamp = Date.now(); //untuk mendapatkan waktu saat ini (mengambil millis)
+      console.info(timestamp);
+
+      const dateUnix = new Date(timestamp); //merbah millis menjadi ke date Unix format tgl biasa
+      console.info(dateUnix);
+
+      console.info(dateUnix.getTime()); //mengambil epoch date (millis) dari date unix
+
+      //misal kita sudah setting date nya dan ingin mengambil epoch time (millis)
+      const date1 = new Date(2020, 12, 01);
+      console.info(date1.getTime()); //mengambil epoch time dari tgl 1 januari 1970 - 12 januari 2001 (millis)
+
+      /*
+      Jika ingin melakukan sistem intergeasi ke aplikasi lain kita bisa menggunakan epoch time saja (millis)
+      apalagi utk bhs pemrograman yang berbeda, kita harus memakai epoch timestamp krn sudah standar dan 
+      dimengerti oleh semua bahas pemrograman. Dibanding mengirim dlm format waktu, kita cukup kirim epoch 
+      timestamp saja. Ini berbentuk number jadi tinggal di konversi ke bahasa pemrograman masing"
+      */
+    </script>
+  </body>
+</html>

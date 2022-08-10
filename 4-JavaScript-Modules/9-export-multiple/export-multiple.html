@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>export-multiple</title>
+    <script type="module" src="scripts/multiple.js"></script>
+  </head>
+  <body>
+    <script type="module">
+      /*
+        Export Multiple
+
+            ● Sebelumnya kita selalu menggunakan kata kunci export diawal variable, function atau class
+            ● Sebenarnya kita bisa menggunakan export sekaligus beberapa data sekaligus, caranya cukup 
+            gunakan perintah :
+            export { variable, function, class, danLainLain }
+        */
+      import { company, sum, Company } from "./scripts/multiple.js";
+
+      console.info(company); // Otniel Corp
+
+      let hasil = sum(20, 20);
+      console.info(hasil); // 40
+
+      const comp = new Company("kevin"); // Company Name : kevin
+      console.info(comp); // Company {name: 'kevin'}
+    </script>
+  </body>
+</html>

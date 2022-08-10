@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>export default function</title>
+  </head>
+  <body>
+    <script type="module">
+      /*
+        Export Default
+            ● Sampai saat ini, kita selalu melakukan export dengan nama, baik itu nama variable, function dan 
+            yang lainnya
+            ● Ada juga fitur yang bernama export default, ini adalah fitur yang digunakan untuk mempermudah 
+            untuk membuat default data di module, dan membantu JavaScript agar kompatibel dengan 
+            CommonJS dan AMD module system
+        */
+      import { default as sayHelloDefault } from "./scripts/default-function.js"; //import function default (krn ada 1 function kita bisa menggunakan nama ini)
+      //ini seakan-akan default as sayHelloDefault (nama alias boleh bebas)
+
+      sayHelloDefault("kevin");
+    </script>
+  </body>
+</html>

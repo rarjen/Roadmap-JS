@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function-dlm-function (nested function)</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - tdk ada batasan kita bisa membuat function
+        - termasuk jika kita ingin membuat function di dlm function, kita bisa melakukannya.
+        - function yg terdapat di dlm, kita sebut inner function
+        - inner function hanya bisa diakses ditempat membuat functionnya, tdk bisa diakses dari luar
+        functionnya.
+
+        - digunakan untuk breakdown di dlm inner function, biasanya kasusnya adl misal membutuhkan breakdown 
+        bbrp kode program di dlm function yg terlalu panjang, tapi cuma bisa digunakan di function tsb
+        */
+
+      //funtion di dlm function
+      function outter() {
+        function inner() {
+          console.info("inner");
+        }
+        inner();
+        inner();
+      }
+
+      outter();
+      //   inner(); //error, tdk bisa diakses
+
+      //contoh sendiri
+      function tambah() {
+        function bilangan(a, b) {
+          return a + b;
+        }
+        let tambah = 2 + bilangan(10, 20);
+        document.writeln(tambah);
+      }
+
+      tambah();
+    </script>
+  </body>
+</html>

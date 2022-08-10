@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>break-continue</title>
+  </head>
+  <body>
+    <script>
+      /*
+        - break digunakan utk menghentikan loop.
+        - Namun continue digunakan untuk mengehentikan perulangan saat ini,
+        lalu melanjutkan ke perulangan selanjutnya.
+        */
+
+      //break
+
+      let counter = 1;
+      while (true) {
+        //melakukan pengulanga terus-menerus
+        document.writeln(`<p>perulangan ke-${counter}</p>`);
+        counter++;
+
+        if (counter > 10) {
+          break; //berhenti total
+        }
+      }
+
+      //continue
+      for (let i = 1; i <= 100; i++) {
+        if (i % 2 === 0) {
+          continue; //seakan-akan meng skip angka genap dan melanjutaknperulngan sampai kondisi terpenuhi
+        }
+        document.writeln(`<p>Perulangan ganjil ${i}</p>`);
+      }
+    </script>
+  </body>
+</html>
