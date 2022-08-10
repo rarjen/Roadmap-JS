@@ -1,0 +1,18 @@
+Blocking
+● Saat kita membuat kode program, secara default kode program akan berjalan secara blocking atau 
+synchronous
+● Artinya kita harus menunggu sebuah kode selesai sebelum kode selanjutnya dieksekusi
+● Contoh ketika kita membuat kode program untuk membaca file, jika kode kita blocking, maka kita 
+harus menunggu program selesai membaca file, baru kita bisa melanjutkan kode program 
+selanjutnya
+
+Non-Blocking
+● Non-Blocking berbeda dengan Blocking, kode program Non-Blocking akan dieksekusi tanpa harus 
+menunggu kode program tersebut selesai
+● Non-Blocking akan dijalankan secara asynchronous
+● Ketika memanggil kode Non-Blocking, biasanya kita perlu mengirimkan callback untuk dipanggil 
+oleh kode Non-Blocking tersebut ketika kodenya susah selesai
+● Contoh-contoh Non-Blocking sudah kita bahas di kelas JavaScript Async, seperti AJAX, Fetch API, 
+dan lain-lain
+● Di NodeJS, hampir semua fiturnya mendukung kode Non-Blocking
+

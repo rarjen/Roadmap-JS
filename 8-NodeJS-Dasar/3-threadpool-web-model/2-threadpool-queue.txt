@@ -1,0 +1,11 @@
+Threadpool Queue
+● Apa yang terjadi ketika semua thread sedang bekerja? Bagaimana jika kita ingin meminta thread ke 
+threadpool untuk mengerjakan sesuatu?
+● Jika semua thread penuh, kita tidak bisa meminta lagi thread ke threadpool. Kita harus menunggu 
+sampai ada thread yang tidak sibuk
+● Dimana kita harus menunggu sampai ada thread tersedia untuk digunakan?
+● Biasanya threadpool memiliki tempat untuk menyimpan tugas yang belum dikerjakan oleh thread 
+di tempat bernama queue (antrian)
+● Ketika kita mengirim perintah ke threadpool, perintah tersebut akan dikirim ke queue, lalu 
+perintah-perintah itu akan dieksekusi satu per satu oleh thread yang tersedia di threadpool
+

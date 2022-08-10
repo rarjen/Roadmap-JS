@@ -1,0 +1,10 @@
+Threadpool Web Model
+● Dahulu pembuatan web application sangat populer menggunakan threadpool model
+● Setiap request yang masuk ke web server akan diproses oleh satu buah thread
+● Dengan demikian ketika banyak request masuk, semua bisa diproses secara paralel karena akan 
+ditangani oleh thread masing-masing
+● Namun threadpool model ini memiliki kekurangan, ketika thread sedang sibuk semua, secara 
+otomatis request selanjutnya harus menunggu sampai ada thread yang selesai melakukan tugas 
+sebelumnya
+● Contoh web server yang menggunakan threadpool model, seperti Apache HTTPD, Apache Tomcat, 
+dan lain-lain

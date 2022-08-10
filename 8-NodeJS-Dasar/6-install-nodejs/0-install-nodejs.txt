@@ -1,0 +1,13 @@
+Menginstall NodeJS Manual
+● Download versi NodeJS LTS (Long Term Support)
+● https://nodejs.org/en/download/
+
+Menginstall NodeJS dengan Package Manager
+● https://github.com/nvm-sh/nvm
+● https://community.chocolatey.org/packages/nodejs
+● https://formulae.brew.sh/formula/node
+
+Setting PATH NodeJS
+● Setelah menginstall NodeJS, disarankan melakukan setting PATH NodeJS pada sistem operasi kita
+● Hal ini agar mudah ketika kita mengakses program NodeJS menggunakan terminal / command 
+prompt

@@ -1,0 +1,11 @@
+Threadpool
+● Pada materi sebelumnya sudah dijelaskan bahwa thread adalah proses ringan yang biasa dibuat 
+saat membuat aplikasi
+● Walaupun bisa dibilang ringan, namun jika terlalu banyak membuat thread, maka tetap akan 
+memberatkan sistem operasi kita
+● Oleh karena itu, biasanya kita akan menggunakan threadpool untuk melakukan management 
+thread
+● Threadpool merupakan tempat dimana kita menyimpan thread, ketika kita butuh kita akan ambil 
+dari threadpool, ketika sudah selesai, kita akan kembalikan thread nya ke threadpool
+● Dengan threadpool, kita bisa memanfaatkan thread yang sama berkali-kali, tanpa harus membuat 
+thread baru terus menerus

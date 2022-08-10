@@ -1,0 +1,4 @@
+Menjalankan Kode JavaScript
+● Karena NodeJS tidak memerlukan Web Browser, jadi kita bisa langsung menjalankan program 
+JavaScript kita menggunakan aplikasi NodeJS lewat terminal / command promt, dengan perintah :
+● node namafile.js
