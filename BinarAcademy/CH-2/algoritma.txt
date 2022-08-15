@@ -1,0 +1,4 @@
+Proses menghitung luas lingkaran.
+User diminta melakukan input panjang jari-jari sebuah lingkaran bertipe data number
+Setelah itu javascript akan melakukan perhitungan menggunakan rumus 2*PHI*r
+Javascript akan melakukan output hasil hitungan 
